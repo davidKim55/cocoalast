@@ -211,5 +211,23 @@
     "artist": "Yahoo! Inc.",
     "license": "Public domain",
     "source": "https://commons.wikimedia.org/wiki/File:Yahoo!_logo_(2013).png"
+  },
+  "yahoo_yang": {
+    "title": "File:Jerry Yang at Yahoo! TechPulse.jpg",
+    "artist": "Yahoo",
+    "license": "CC BY 2.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Jerry_Yang_at_Yahoo!_TechPulse.jpg"
+  },
+  "yahoo_mayer": {
+    "title": "File:TechCrunch SF 2013 4S2A3709 Marissa Mayer.jpg",
+    "artist": "TechCrunch_SF_2013_4S2A3709_(9725490621).jpg: TechCrunch der",
+    "license": "CC BY 2.0",
+    "source": "https://commons.wikimedia.org/wiki/File:TechCrunch_SF_2013_4S2A3709_Marissa_Mayer.jpg"
+  },
+  "ms_sign": {
+    "title": "File:Microsoft sign closeup.jpg",
+    "artist": "Unknown",
+    "license": "Public domain",
+    "source": "https://commons.wikimedia.org/wiki/File:Microsoft_sign_closeup.jpg"
   }
 }
