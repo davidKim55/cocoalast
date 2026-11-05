@@ -229,5 +229,59 @@
     "artist": "Unknown",
     "license": "Public domain",
     "source": "https://commons.wikimedia.org/wiki/File:Microsoft_sign_closeup.jpg"
+  },
+  "tru_store": {
+    "title": "File:Toys \"R\" Us store in Times Square.jpg",
+    "artist": "A.sostika",
+    "license": "CC BY-SA 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Toys_%22R%22_Us_store_in_Times_Square.jpg"
+  },
+  "tru_closing": {
+    "title": "File:Toys \"R\" Us Store Closing 07.jpg",
+    "artist": "Talor Berthelson",
+    "license": "CC BY 2.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Toys_%22R%22_Us_Store_Closing_07.jpg"
+  },
+  "tru_former": {
+    "title": "File:Former Toys “R” Us; Canton OH.jpg",
+    "artist": "Larry Hachucka",
+    "license": "CC BY-SA 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Former_Toys_%E2%80%9CR%E2%80%9D_Us;_Canton_OH.jpg"
+  },
+  "amazon_fc": {
+    "title": "File:Amazon fulfillment center - Troutdale Oregon.jpg",
+    "artist": "Tedder",
+    "license": "CC BY-SA 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Amazon_fulfillment_center_-_Troutdale_Oregon.jpg"
+  },
+  "amazon_logo": {
+    "title": "File:Amazon Logo at Amazon Fulfillment Center in Eastvale.jpeg",
+    "artist": "Sdogg7159",
+    "license": "CC BY-SA 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Amazon_Logo_at_Amazon_Fulfillment_Center_in_Eastvale.jpeg"
+  },
+  "bb_bold": {
+    "title": "File:BlackBerry 8820, BlackBerry Bold 9900 and BlackBerry Classic.jpg",
+    "artist": "Kt38138",
+    "license": "CC BY-SA 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:BlackBerry_8820,_BlackBerry_Bold_9900_and_BlackBerry_Classic.jpg"
+  },
+  "bb_curve": {
+    "title": "File:BlackBerry Bold 9790.jpg",
+    "artist": "Infev",
+    "license": "CC BY-SA 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:BlackBerry_Bold_9790.jpg"
+  },
+  "tru_geoffrey": {
+    "title": "File:US Navy 060611-N-8544C-037 Toys R' Us mascot Geoffrey the Giraffe entertains family and friends during the homecoming ceremony for the guided missile cruiser USS Vicksburg (CG 69).jpg",
+    "artist": "U.S. Navy photo by Photographer's Mate 2nd Class Susan Corne",
+    "license": "Public domain",
+    "source": "https://commons.wikimedia.org/wiki/File:US_Navy_060611-N-8544C-037_Toys_R%27_Us_mascot_Geoffrey_the_Giraffe_entertains_family_and_friends_during_the_homecoming_ceremony_for_the_guided_missile_cruiser_USS_Vicksburg_(CG_69).jpg"
+  },
+  "tru_closing2": {
+    "title": "File:Toys R Us Hialeah Florida Closing Sale (26581532387).jpg",
+    "artist": "Phillip Pessar from Miami, USA",
+    "license": "CC BY 2.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Toys_R_Us_Hialeah_Florida_Closing_Sale_(26581532387).jpg"
   }
 }
