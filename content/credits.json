@@ -283,5 +283,65 @@
     "artist": "Phillip Pessar from Miami, USA",
     "license": "CC BY 2.0",
     "source": "https://commons.wikimedia.org/wiki/File:Toys_R_Us_Hialeah_Florida_Closing_Sale_(26581532387).jpg"
+  },
+  "sears_tower": {
+    "title": "File:Willis Tower Sears Tower, Chicago 1978.jpg",
+    "artist": "Acabashi",
+    "license": "CC BY-SA 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Willis_Tower_Sears_Tower,_Chicago_1978.jpg"
+  },
+  "sears_catalog": {
+    "title": "File:Sears, Roebuck and Company, Pressroom, circa 1920 - Advertising Postcard (4542190078).jpg",
+    "artist": "Steve Shook from Moscow, Idaho, USA",
+    "license": "CC BY 2.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Sears,_Roebuck_and_Company,_Pressroom,_circa_1920_-_Advertising_Postcard_(4542190078).jpg"
+  },
+  "sears_store": {
+    "title": "File:Sears Savannah, GA 6 (33541048956).jpg",
+    "artist": "Mike Kalasnik from Jersey City, USA",
+    "license": "CC BY-SA 2.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Sears_Savannah,_GA_6_(33541048956).jpg"
+  },
+  "sears_house": {
+    "title": "File:Sears Catalog Home Greensburg Pennsylvania.jpg",
+    "artist": "Canadian2006",
+    "license": "CC BY-SA 3.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Sears_Catalog_Home_Greensburg_Pennsylvania.jpg"
+  },
+  "sears_closing": {
+    "title": "File:Sears store closing.JPG",
+    "artist": "Jonrev at English Wikipedia",
+    "license": "Public domain",
+    "source": "https://commons.wikimedia.org/wiki/File:Sears_store_closing.JPG"
+  },
+  "sears_sixcorners": {
+    "title": "File:Sears Store Closing Westland Mall Hialeah - Lonely Mannequin.jpg",
+    "artist": "Phillip Pessar",
+    "license": "CC BY 2.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Sears_Store_Closing_Westland_Mall_Hialeah_-_Lonely_Mannequin.jpg"
+  },
+  "rochester": {
+    "title": "File:Rochester, New York in 1987.JPG",
+    "artist": "Daniel Christensen",
+    "license": "CC BY-SA 3.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Rochester,_New_York_in_1987.JPG"
+  },
+  "rochester2": {
+    "title": "File:Skyline Rochester, NY.jpg",
+    "artist": "Evilarry at English Wikipedia",
+    "license": "CC BY-SA 3.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Skyline_Rochester,_NY.jpg"
+  },
+  "fuji_hq": {
+    "title": "File:FUJIFILM Corporation Tokyo Midtown headquarter.jpg",
+    "artist": "Tokumeigakarinoaoshima",
+    "license": "CC BY-SA 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:FUJIFILM_Corporation_Tokyo_Midtown_headquarter.jpg"
+  },
+  "elop": {
+    "title": "File:Stephen Elop, CEO of Nokia (15059664078).jpg",
+    "artist": "Maurizio Pesce from Milan, Italia",
+    "license": "CC BY 2.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Stephen_Elop,_CEO_of_Nokia_(15059664078).jpg"
   }
 }

@@ -566,29 +566,29 @@
         {
           "at": "4위,",
           "type": "rank",
-          "image": "dead_mall2",
+          "image": "sears_tower",
           "rank": "4위",
           "name": "시어스"
         },
         {
           "at": "19세기 말부터",
           "type": "card",
-          "image": "abandoned_mall"
+          "image": "sears_catalog"
         },
         {
           "at": "크리스마스엔",
           "type": "card",
-          "image": "abandoned_mall"
+          "image": "sears_catalog"
         },
         {
           "at": "1990년 월마트",
           "type": "bg",
-          "image": "dead_mall2"
+          "image": "sears_tower"
         },
         {
           "at": "그런데 1993년",
           "type": "card",
-          "image": "abandoned_mall"
+          "image": "sears_catalog"
         },
         {
           "at": "그리고 바로 이듬해",
@@ -598,22 +598,22 @@
         {
           "at": "2005년 케이마트",
           "type": "bg",
-          "image": "dead_mall2"
+          "image": "sears_store"
         },
         {
           "at": "2017년 주주총회",
           "type": "card",
-          "image": "abandoned_mall"
+          "image": "sears_closing"
         },
         {
           "at": "2018년 10월",
           "type": "bg",
-          "image": "abandoned_mall"
+          "image": "sears_closing"
         },
         {
           "at": "시어스의 고향 시카고",
           "type": "card",
-          "image": "abandoned_mall"
+          "image": "sears_sixcorners"
         },
         {
           "at": "2021년, 일리노이주",
@@ -911,7 +911,7 @@
         {
           "at": "그런데 반년도",
           "type": "card",
-          "image": "nokia_hq2"
+          "image": "elop"
         },
         {
           "at": "2012년, 1만 명",
@@ -1098,7 +1098,7 @@
         {
           "at": "본사가 있던 뉴욕주",
           "type": "bg",
-          "image": "kodak_tower2"
+          "image": "rochester"
         },
         {
           "at": "그리고 1975년",
@@ -1128,7 +1128,7 @@
         {
           "at": "그 옳은 결정의",
           "type": "bg",
-          "image": "kodak_tower2"
+          "image": "rochester2"
         },
         {
           "at": "파산 신청 날",
@@ -1311,12 +1311,12 @@
         {
           "at": "반대로 살아남은",
           "type": "card",
-          "image": "kodak_film2"
+          "image": "fuji_hq"
         },
         {
           "at": "고모리",
           "type": "bg",
-          "image": "kodak_film2"
+          "image": "fuji_hq"
         },
         {
           "at": "넷플릭스는 자기 돈줄",
@@ -1448,7 +1448,7 @@
         "rank": "4위",
         "name": "시어스",
         "result": "2018 파산보호",
-        "image": "dead_mall2"
+        "image": "sears_tower"
       },
       {
         "rank": "3위",

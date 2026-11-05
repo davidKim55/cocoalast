@@ -49,7 +49,7 @@ VISUALS = {
     "t20_r4": [
         BOARD("블랙베리가 미래를", 3), RANK("4위,", "sears_tower", "4위", "시어스"), CARD("19세기 말부터", "sears_catalog"),
         CARD("크리스마스엔", "sears_wishbook"), BG("1990년 월마트", "sears_tower"), CARD("그런데 1993년", "sears_catalog"),
-        BG("그리고 바로 이듬해", "amazon_fc"), BG("2005년 케이마트", "dead_mall2"), CARD("2017년 주주총회", "sears_closing"),
+        BG("그리고 바로 이듬해", "amazon_fc"), BG("2005년 케이마트", "sears_store"), CARD("2017년 주주총회", "sears_closing"),
         BG("2018년 10월", "sears_closing"), CARD("시어스의 고향 시카고", "sears_sixcorners"), BG("2021년, 일리노이주", "abandoned_mall"),
     ],
     "t20_r3": [
@@ -70,7 +70,7 @@ VISUALS = {
         BOARD("지금까지는 회사가", 6), RANK("1위,", "kodak_tower", "1위", "코닥"), CARD("돌잔치", "kodak_film2"),
         BG("1888년", "kodak_brownie"), BG("1976년", "kodak_film"), BG("본사가 있던 뉴욕주", "rochester"),
         CARD("그리고 1975년", "kodak_sasson"), BG("이걸 본 경영진은", "v_film_camera"), BG("그렇다고 코닥이", "kodak_instamatic"),
-        CARD("그 사이 2010년에", "instagram"), CARD("같은 해 1월", "kodak_tower2"), BG("그 옳은 결정의", "rochester"),
+        CARD("그 사이 2010년에", "instagram"), CARD("같은 해 1월", "kodak_tower2"), BG("그 옳은 결정의", "rochester2"),
         BG("파산 신청 날", "kodak_tower"), BG("걱정은 현실이", "kodak_film2"), BG("속은 건 투자자만", "kodak_film"),
         CARD("디지털카메라를 처음 만든", "kodak_sasson"), BG("필름을 지키려다", "kodak_tower2"),
     ],
@@ -91,7 +91,7 @@ FALLBACK = {
     "bb_bold": "iphone_gen", "bb_curve": "bb_bold", "obama_bb": "bb_curve", "balsillie": "bb_curve",
     "bb_storm": "bb_curve", "rim_waterloo": "bb_bold",
     "sears_tower": "dead_mall2", "sears_catalog": "abandoned_mall", "sears_wishbook": "sears_catalog",
-    "sears_closing": "abandoned_mall", "sears_sixcorners": "sears_closing",
-    "elop": "nokia_hq2", "salo": "nokia_hq", "rochester": "kodak_tower2", "instagram": "iphone_gen",
+    "sears_closing": "sears_store", "sears_store": "abandoned_mall", "sears_sixcorners": "sears_closing",
+    "elop": "nokia_hq2", "salo": "nokia_hq", "rochester": "kodak_tower2", "rochester2": "rochester", "instagram": "iphone_gen",
     "fuji_hq": "kodak_film2",
 }

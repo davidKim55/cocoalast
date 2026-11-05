@@ -30,7 +30,7 @@
     "rank": "4위",
     "name": "시어스",
     "result": "2018 파산보호",
-    "image": "dead_mall2"
+    "image": "sears_tower"
    },
    {
     "rank": "3위",
@@ -2133,48 +2133,48 @@
     {
      "at": "4위,",
      "type": "rank",
-     "image": "dead_mall2",
+     "image": "sears_tower",
      "rank": "4위",
      "name": "시어스",
      "from": 208,
      "kind": "image",
-     "aspect": 1.333,
+     "aspect": 0.594,
      "to": 268
     },
     {
      "at": "19세기 말부터",
      "type": "card",
-     "image": "abandoned_mall",
+     "image": "sears_catalog",
      "from": 268,
      "kind": "image",
-     "aspect": 1.333,
+     "aspect": 1.596,
      "to": 520
     },
     {
      "at": "크리스마스엔",
      "type": "card",
-     "image": "abandoned_mall",
+     "image": "sears_catalog",
      "from": 520,
      "kind": "image",
-     "aspect": 1.333,
+     "aspect": 1.596,
      "to": 703
     },
     {
      "at": "1990년 월마트",
      "type": "bg",
-     "image": "dead_mall2",
+     "image": "sears_tower",
      "from": 703,
      "kind": "image",
-     "aspect": 1.333,
+     "aspect": 0.594,
      "to": 1079
     },
     {
      "at": "그런데 1993년",
      "type": "card",
-     "image": "abandoned_mall",
+     "image": "sears_catalog",
      "from": 1079,
      "kind": "image",
-     "aspect": 1.333,
+     "aspect": 1.596,
      "to": 1624
     },
     {
@@ -2189,16 +2189,16 @@
     {
      "at": "2005년 케이마트",
      "type": "bg",
-     "image": "dead_mall2",
+     "image": "sears_store",
      "from": 1994,
      "kind": "image",
-     "aspect": 1.333,
+     "aspect": 1.778,
      "to": 2215
     },
     {
      "at": "2017년 주주총회",
      "type": "card",
-     "image": "abandoned_mall",
+     "image": "sears_closing",
      "from": 2215,
      "kind": "image",
      "aspect": 1.333,
@@ -2207,7 +2207,7 @@
     {
      "at": "2018년 10월",
      "type": "bg",
-     "image": "abandoned_mall",
+     "image": "sears_closing",
      "from": 2853,
      "kind": "image",
      "aspect": 1.333,
@@ -2216,7 +2216,7 @@
     {
      "at": "시어스의 고향 시카고",
      "type": "card",
-     "image": "abandoned_mall",
+     "image": "sears_sixcorners",
      "from": 3160,
      "kind": "image",
      "aspect": 1.333,
@@ -3427,10 +3427,10 @@
     {
      "at": "그런데 반년도",
      "type": "card",
-     "image": "nokia_hq2",
+     "image": "elop",
      "from": 1936,
      "kind": "image",
-     "aspect": 1.333,
+     "aspect": 1.499,
      "to": 2602
     },
     {
@@ -4149,10 +4149,10 @@
     {
      "at": "본사가 있던 뉴욕주",
      "type": "bg",
-     "image": "kodak_tower2",
+     "image": "rochester",
      "from": 1127,
      "kind": "image",
-     "aspect": 1.333,
+     "aspect": 1.499,
      "to": 1328
     },
     {
@@ -4203,10 +4203,10 @@
     {
      "at": "그 옳은 결정의",
      "type": "bg",
-     "image": "kodak_tower2",
+     "image": "rochester2",
      "from": 3284,
      "kind": "image",
-     "aspect": 1.333,
+     "aspect": 2.045,
      "to": 3737
     },
     {
@@ -5055,19 +5055,19 @@
     {
      "at": "반대로 살아남은",
      "type": "card",
-     "image": "kodak_film2",
+     "image": "fuji_hq",
      "from": 1552,
      "kind": "image",
-     "aspect": 1.0,
+     "aspect": 1.333,
      "to": 1869
     },
     {
      "at": "고모리",
      "type": "bg",
-     "image": "kodak_film2",
+     "image": "fuji_hq",
      "from": 1869,
      "kind": "image",
-     "aspect": 1.0,
+     "aspect": 1.333,
      "to": 2276
     },
     {
@@ -5927,6 +5927,60 @@
    "artist": "U.S. Navy photo by Photographer's Mate 2nd Class Susan Corne",
    "license": "Public domain",
    "source": "https://commons.wikimedia.org/wiki/File:US_Navy_060611-N-8544C-037_Toys_R%27_Us_mascot_Geoffrey_the_Giraffe_entertains_family_and_friends_during_the_homecoming_ceremony_for_the_guided_missile_cruiser_USS_Vicksburg_(CG_69).jpg"
+  },
+  "sears_tower": {
+   "title": "File:Willis Tower Sears Tower, Chicago 1978.jpg",
+   "artist": "Acabashi",
+   "license": "CC BY-SA 4.0",
+   "source": "https://commons.wikimedia.org/wiki/File:Willis_Tower_Sears_Tower,_Chicago_1978.jpg"
+  },
+  "sears_catalog": {
+   "title": "File:Sears, Roebuck and Company, Pressroom, circa 1920 - Advertising Postcard (4542190078).jpg",
+   "artist": "Steve Shook from Moscow, Idaho, USA",
+   "license": "CC BY 2.0",
+   "source": "https://commons.wikimedia.org/wiki/File:Sears,_Roebuck_and_Company,_Pressroom,_circa_1920_-_Advertising_Postcard_(4542190078).jpg"
+  },
+  "sears_store": {
+   "title": "File:Sears Savannah, GA 6 (33541048956).jpg",
+   "artist": "Mike Kalasnik from Jersey City, USA",
+   "license": "CC BY-SA 2.0",
+   "source": "https://commons.wikimedia.org/wiki/File:Sears_Savannah,_GA_6_(33541048956).jpg"
+  },
+  "sears_closing": {
+   "title": "File:Sears store closing.JPG",
+   "artist": "Jonrev at English Wikipedia",
+   "license": "Public domain",
+   "source": "https://commons.wikimedia.org/wiki/File:Sears_store_closing.JPG"
+  },
+  "sears_sixcorners": {
+   "title": "File:Sears Store Closing Westland Mall Hialeah - Lonely Mannequin.jpg",
+   "artist": "Phillip Pessar",
+   "license": "CC BY 2.0",
+   "source": "https://commons.wikimedia.org/wiki/File:Sears_Store_Closing_Westland_Mall_Hialeah_-_Lonely_Mannequin.jpg"
+  },
+  "rochester": {
+   "title": "File:Rochester, New York in 1987.JPG",
+   "artist": "Daniel Christensen",
+   "license": "CC BY-SA 3.0",
+   "source": "https://commons.wikimedia.org/wiki/File:Rochester,_New_York_in_1987.JPG"
+  },
+  "rochester2": {
+   "title": "File:Skyline Rochester, NY.jpg",
+   "artist": "Evilarry at English Wikipedia",
+   "license": "CC BY-SA 3.0",
+   "source": "https://commons.wikimedia.org/wiki/File:Skyline_Rochester,_NY.jpg"
+  },
+  "fuji_hq": {
+   "title": "File:FUJIFILM Corporation Tokyo Midtown headquarter.jpg",
+   "artist": "Tokumeigakarinoaoshima",
+   "license": "CC BY-SA 4.0",
+   "source": "https://commons.wikimedia.org/wiki/File:FUJIFILM_Corporation_Tokyo_Midtown_headquarter.jpg"
+  },
+  "elop": {
+   "title": "File:Stephen Elop, CEO of Nokia (15059664078).jpg",
+   "artist": "Maurizio Pesce from Milan, Italia",
+   "license": "CC BY 2.0",
+   "source": "https://commons.wikimedia.org/wiki/File:Stephen_Elop,_CEO_of_Nokia_(15059664078).jpg"
   }
  }
 }
