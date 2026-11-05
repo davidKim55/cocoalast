@@ -4,17 +4,19 @@ import { C, FONT, loadFonts, outlined } from "./theme";
 
 // YouTube thumbnail in the reference's layout, built from the intro's beats:
 // corner hook = intro scene 1 (the $50M Netflix offer), centre quote = scene 2 (the radar line),
-// right photo = the intro's answer (the last Blockbuster left), left photo = Blockbuster in its prime.
+// left = the last Blockbuster, greyed out; right = Netflix, the company it laughed at, in colour.
 export const Thumbnail: React.FC = () => {
   loadFonts();
   const crack = "M 0 0 L 18 90 L -10 170 L 22 260 L -6 350 L 16 440 L -12 530 L 14 620 L 0 720";
   return (
     <AbsoluteFill style={{ background: "#000", fontFamily: FONT }}>
+      {/* left: Blockbuster, faded to grey (the one that fell) */}
       <div style={{ position: "absolute", left: 0, top: 0, width: 660, height: 720, overflow: "hidden" }}>
-        <Img src={staticFile("images/bb_store.jpg")} style={{ width: "100%", height: "100%", objectFit: "cover", filter: "saturate(1.25) brightness(1.05)" }} />
+        <Img src={staticFile("images/bb_last.jpg")} style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "35% 50%", filter: "grayscale(1) brightness(0.62) contrast(1.15)" }} />
       </div>
+      {/* right: Netflix HQ in full colour (the one it laughed at), zoomed onto the sign */}
       <div style={{ position: "absolute", left: 640, top: 0, width: 640, height: 720, overflow: "hidden" }}>
-        <Img src={staticFile("images/bb_last.jpg")} style={{ width: "100%", height: "100%", objectFit: "cover", filter: "grayscale(0.75) brightness(0.62) contrast(1.15)" }} />
+        <Img src={staticFile("images/netflix_hq.jpg")} style={{ position: "absolute", width: 1920, left: -368, top: -640, filter: "saturate(1.3) brightness(1.05)" }} />
       </div>
       <svg width={60} height={720} viewBox="-30 0 60 720" style={{ position: "absolute", left: 620, top: 0 }}>
         <path d={crack} stroke={C.red} strokeWidth={7} fill="none" />

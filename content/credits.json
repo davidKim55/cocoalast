@@ -181,5 +181,17 @@
     "license": "자체 제작",
     "source": null,
     "kind": "generated"
+  },
+  "netflix_hq": {
+    "title": "File:Netflix headquarters.jpg",
+    "artist": "Coolcaesar at English Wikipedia",
+    "license": "CC BY-SA 3.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Netflix_headquarters.jpg"
+  },
+  "netflix_hq2": {
+    "title": "File:101 Albright Way.jpg",
+    "artist": "Coolcaesar",
+    "license": "CC BY-SA 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:101_Albright_Way.jpg"
   }
 }
