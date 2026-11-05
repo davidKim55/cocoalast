@@ -1,0 +1,1740 @@
+{
+ "fps": 30,
+ "width": 1920,
+ "height": 1080,
+ "durationInFrames": 5399,
+ "scenes": [
+  {
+   "id": "s1_hook",
+   "from": 12,
+   "duration": 643,
+   "audioOffset": 12,
+   "chapter": null,
+   "captions": [
+    {
+     "from": 12,
+     "to": 74,
+     "segs": [
+      {
+       "t": "2000년, 미국 댈러스의",
+       "red": false
+      }
+     ]
+    },
+    {
+     "from": 74,
+     "to": 113,
+     "segs": [
+      {
+       "t": "한 회의실",
+       "red": false
+      }
+     ]
+    },
+    {
+     "from": 113,
+     "to": 172,
+     "segs": [
+      {
+       "t": "작은 스타트업 대표 두 명이",
+       "red": false
+      }
+     ]
+    },
+    {
+     "from": 172,
+     "to": 205,
+     "segs": [
+      {
+       "t": "업계 1위",
+       "red": true
+      },
+      {
+       "t": " 기업을",
+       "red": false
+      }
+     ]
+    },
+    {
+     "from": 205,
+     "to": 239,
+     "segs": [
+      {
+       "t": "찾아갔습니다",
+       "red": false
+      }
+     ]
+    },
+    {
+     "from": 239,
+     "to": 284,
+     "segs": [
+      {
+       "t": "제안은 단 하나",
+       "red": false
+      }
+     ]
+    },
+    {
+     "from": 284,
+     "to": 338,
+     "segs": [
+      {
+       "t": "\"우리 회사를 ",
+       "red": false
+      },
+      {
+       "t": "5천만 달러",
+       "red": true
+      },
+      {
+       "t": "에",
+       "red": false
+      }
+     ]
+    },
+    {
+     "from": 338,
+     "to": 374,
+     "segs": [
+      {
+       "t": "사 주십시오.\"",
+       "red": false
+      }
+     ]
+    },
+    {
+     "from": 374,
+     "to": 442,
+     "segs": [
+      {
+       "t": "돌아온 건 ",
+       "red": false
+      },
+      {
+       "t": "비웃음",
+       "red": true
+      },
+      {
+       "t": "이었습니다",
+       "red": false
+      }
+     ]
+    },
+    {
+     "from": 442,
+     "to": 482,
+     "segs": [
+      {
+       "t": "그 스타트업의 이름은",
+       "red": false
+      }
+     ]
+    },
+    {
+     "from": 482,
+     "to": 511,
+     "segs": [
+      {
+       "t": "넷플릭스",
+       "red": true
+      }
+     ]
+    },
+    {
+     "from": 511,
+     "to": 564,
+     "segs": [
+      {
+       "t": "그리고 웃었던 회사는",
+       "red": false
+      }
+     ]
+    },
+    {
+     "from": 564,
+     "to": 641,
+     "segs": [
+      {
+       "t": "10년 뒤 ",
+       "red": false
+      },
+      {
+       "t": "파산",
+       "red": true
+      },
+      {
+       "t": "했습니다",
+       "red": false
+      }
+     ]
+    }
+   ],
+   "graphics": [
+    {
+     "type": "stat",
+     "at": "5천만 달러",
+     "until": "돌아온 건",
+     "label": "넷플릭스가 제안한 회사 매각가",
+     "value": "5,000만 달러",
+     "from": 305,
+     "to": 371
+    },
+    {
+     "type": "photo",
+     "at": "넷플릭스",
+     "until": "10년",
+     "image": "netflix_env",
+     "from": 478,
+     "to": 561
+    },
+    {
+     "type": "stat",
+     "at": "10년 뒤",
+     "label": "웃었던 회사의 결말",
+     "value": "10년 뒤 파산",
+     "from": 560,
+     "to": 643
+    }
+   ],
+   "backgrounds": [
+    {
+     "image": "dallas",
+     "from": 0,
+     "to": 161
+    },
+    {
+     "image": "dallas2",
+     "from": 161,
+     "to": 321
+    },
+    {
+     "image": "bb_sign",
+     "from": 321,
+     "to": 482
+    },
+    {
+     "image": "bb_last",
+     "from": 482,
+     "to": 643
+    }
+   ]
+  },
+  {
+   "id": "s2_intro",
+   "from": 655,
+   "duration": 650,
+   "audioOffset": 0,
+   "chapter": null,
+   "captions": [
+    {
+     "from": 0,
+     "to": 65,
+     "segs": [
+      {
+       "t": "한때 세상을 지배했지만",
+       "red": false
+      }
+     ]
+    },
+    {
+     "from": 65,
+     "to": 122,
+     "segs": [
+      {
+       "t": "변화를 외면",
+       "red": true
+      },
+      {
+       "t": "하다 ",
+       "red": false
+      },
+      {
+       "t": "한순간에",
+       "red": true
+      }
+     ]
+    },
+    {
+     "from": 122,
+     "to": 166,
+     "segs": [
+      {
+       "t": "무너진 기업들",
+       "red": false
+      }
+     ]
+    },
+    {
+     "from": 166,
+     "to": 221,
+     "segs": [
+      {
+       "t": "오늘은 그중에서도 가장",
+       "red": false
+      }
+     ]
+    },
+    {
+     "from": 221,
+     "to": 283,
+     "segs": [
+      {
+       "t": "뼈아픈 ",
+       "red": false
+      },
+      {
+       "t": "몰락 TOP3",
+       "red": true
+      },
+      {
+       "t": "를",
+       "red": false
+      }
+     ]
+    },
+    {
+     "from": 283,
+     "to": 319,
+     "segs": [
+      {
+       "t": "준비했습니다",
+       "red": false
+      }
+     ]
+    },
+    {
+     "from": 319,
+     "to": 348,
+     "segs": [
+      {
+       "t": "끝까지 보시면",
+       "red": false
+      }
+     ]
+    },
+    {
+     "from": 348,
+     "to": 401,
+     "segs": [
+      {
+       "t": "지금 잘나가는 기업들도",
+       "red": false
+      }
+     ]
+    },
+    {
+     "from": 401,
+     "to": 446,
+     "segs": [
+      {
+       "t": "다르게 보이실 겁니다",
+       "red": false
+      }
+     ]
+    },
+    {
+     "from": 446,
+     "to": 506,
+     "segs": [
+      {
+       "t": "시작 전에 ",
+       "red": false
+      },
+      {
+       "t": "구독",
+       "red": true
+      },
+      {
+       "t": " 눌러 주시면",
+       "red": false
+      }
+     ]
+    },
+    {
+     "from": 506,
+     "to": 564,
+     "segs": [
+      {
+       "t": "더 유익한 소식 먼저 전해",
+       "red": false
+      }
+     ]
+    },
+    {
+     "from": 564,
+     "to": 598,
+     "segs": [
+      {
+       "t": "드리겠습니다",
+       "red": false
+      }
+     ]
+    },
+    {
+     "from": 598,
+     "to": 649,
+     "segs": [
+      {
+       "t": "3위부터 보시죠",
+       "red": false
+      }
+     ]
+    }
+   ],
+   "graphics": [
+    {
+     "type": "title",
+     "at": "가장 뼈아픈",
+     "until": "끝까지",
+     "kicker": "변화를 외면한 대가",
+     "value": "몰락 TOP3",
+     "from": 204,
+     "to": 316
+    },
+    {
+     "type": "subscribe",
+     "at": "구독",
+     "until": "3위부터",
+     "from": 464,
+     "to": 595
+    }
+   ],
+   "backgrounds": [
+    {
+     "image": "abandoned_mall",
+     "from": 0,
+     "to": 217
+    },
+    {
+     "image": "dead_mall2",
+     "from": 217,
+     "to": 433
+    },
+    {
+     "image": "bb_shelves",
+     "from": 433,
+     "to": 650
+    }
+   ]
+  },
+  {
+   "id": "s3_blockbuster",
+   "from": 1305,
+   "duration": 1197,
+   "audioOffset": 0,
+   "chapter": {
+    "rank": "3위",
+    "name": "블록버스터"
+   },
+   "captions": [
+    {
+     "from": 0,
+     "to": 55,
+     "segs": [
+      {
+       "t": "3위는 방금 말씀드린",
+       "red": false
+      }
+     ]
+    },
+    {
+     "from": 55,
+     "to": 98,
+     "segs": [
+      {
+       "t": "블록버스터입니다",
+       "red": false
+      }
+     ]
+    },
+    {
+     "from": 98,
+     "to": 154,
+     "segs": [
+      {
+       "t": "2004년 전성기",
+       "red": false
+      }
+     ]
+    },
+    {
+     "from": 154,
+     "to": 204,
+     "segs": [
+      {
+       "t": "전 세계 매장이 ",
+       "red": false
+      },
+      {
+       "t": "9천 곳",
+       "red": true
+      },
+      {
+       "t": "이",
+       "red": false
+      }
+     ]
+    },
+    {
+     "from": 204,
+     "to": 233,
+     "segs": [
+      {
+       "t": "넘었습니다",
+       "red": false
+      }
+     ]
+    },
+    {
+     "from": 233,
+     "to": 283,
+     "segs": [
+      {
+       "t": "금요일 밤이면 비디오를",
+       "red": false
+      }
+     ]
+    },
+    {
+     "from": 283,
+     "to": 370,
+     "segs": [
+      {
+       "t": "빌리려는 가족들로 매장 앞이 붐볐죠",
+       "red": false
+      }
+     ]
+    },
+    {
+     "from": 370,
+     "to": 427,
+     "segs": [
+      {
+       "t": "그런데 이 회사의 진짜",
+       "red": false
+      }
+     ]
+    },
+    {
+     "from": 427,
+     "to": 482,
+     "segs": [
+      {
+       "t": "돈줄은 따로 있었습니다",
+       "red": false
+      }
+     ]
+    },
+    {
+     "from": 482,
+     "to": 530,
+     "segs": [
+      {
+       "t": "바로 ",
+       "red": false
+      },
+      {
+       "t": "연체료",
+       "red": true
+      }
+     ]
+    },
+    {
+     "from": 530,
+     "to": 576,
+     "segs": [
+      {
+       "t": "한 해 ",
+       "red": false
+      },
+      {
+       "t": "연체료",
+       "red": true
+      },
+      {
+       "t": " 수입만",
+       "red": false
+      }
+     ]
+    },
+    {
+     "from": 576,
+     "to": 624,
+     "segs": [
+      {
+       "t": "8억 달러",
+       "red": true
+      },
+      {
+       "t": "에 달했습니다",
+       "red": false
+      }
+     ]
+    },
+    {
+     "from": 624,
+     "to": 715,
+     "segs": [
+      {
+       "t": "고객의 불편",
+       "red": true
+      },
+      {
+       "t": "이 곧 수익이었던 겁니다",
+       "red": false
+      }
+     ]
+    },
+    {
+     "from": 715,
+     "to": 780,
+     "segs": [
+      {
+       "t": "넷플릭스는 정확히 그 틈을",
+       "red": false
+      }
+     ]
+    },
+    {
+     "from": 780,
+     "to": 818,
+     "segs": [
+      {
+       "t": "파고들었습니다",
+       "red": false
+      }
+     ]
+    },
+    {
+     "from": 818,
+     "to": 869,
+     "segs": [
+      {
+       "t": "연체료 없는",
+       "red": true
+      },
+      {
+       "t": " 우편 대여",
+       "red": false
+      }
+     ]
+    },
+    {
+     "from": 869,
+     "to": 917,
+     "segs": [
+      {
+       "t": "그리고 스트리밍",
+       "red": false
+      }
+     ]
+    },
+    {
+     "from": 917,
+     "to": 965,
+     "segs": [
+      {
+       "t": "고객이 떠나기 시작하자",
+       "red": false
+      }
+     ]
+    },
+    {
+     "from": 965,
+     "to": 1022,
+     "segs": [
+      {
+       "t": "블록버스터는 2010년",
+       "red": false
+      }
+     ]
+    },
+    {
+     "from": 1022,
+     "to": 1063,
+     "segs": [
+      {
+       "t": "파산",
+       "red": true
+      },
+      {
+       "t": "을 신청했고",
+       "red": false
+      }
+     ]
+    },
+    {
+     "from": 1063,
+     "to": 1123,
+     "segs": [
+      {
+       "t": "지금은 미국 오리건주에",
+       "red": false
+      }
+     ]
+    },
+    {
+     "from": 1123,
+     "to": 1196,
+     "segs": [
+      {
+       "t": "단 한 곳",
+       "red": true
+      },
+      {
+       "t": "만 남아 있습니다",
+       "red": false
+      }
+     ]
+    }
+   ],
+   "graphics": [
+    {
+     "type": "rank",
+     "at": "3위는",
+     "until": "2004년",
+     "rank": "3위",
+     "name": "블록버스터",
+     "from": 0,
+     "to": 95
+    },
+    {
+     "type": "stat",
+     "at": "9천 곳",
+     "until": "빌리려는",
+     "label": "2004년 전성기 매장 수",
+     "value": "9,000곳+",
+     "from": 180,
+     "to": 280
+    },
+    {
+     "type": "photo",
+     "at": "바로 연체료",
+     "until": "고객의",
+     "image": "bb_rewind",
+     "from": 478,
+     "to": 621
+    },
+    {
+     "type": "stat",
+     "at": "8억 달러",
+     "until": "넷플릭스는",
+     "label": "한 해 연체료 수입",
+     "value": "8억 달러",
+     "from": 572,
+     "to": 712
+    },
+    {
+     "type": "photo",
+     "at": "넷플릭스는 정확히",
+     "until": "고객이 떠나기",
+     "image": "netflix_env",
+     "from": 711,
+     "to": 914
+    },
+    {
+     "type": "photo",
+     "at": "지금은 미국",
+     "image": "bb_last",
+     "until": "END",
+     "from": 1059,
+     "to": 1197
+    },
+    {
+     "type": "stat",
+     "at": "단 한 곳",
+     "label": "남은 블록버스터 매장",
+     "value": "단 1곳",
+     "from": 1119,
+     "to": 1197
+    }
+   ],
+   "backgrounds": [
+    {
+     "image": "bb_store",
+     "from": 0,
+     "to": 150
+    },
+    {
+     "image": "bb_store2",
+     "from": 150,
+     "to": 299
+    },
+    {
+     "image": "bb_vhs",
+     "from": 299,
+     "to": 449
+    },
+    {
+     "image": "bb_shelves",
+     "from": 449,
+     "to": 599
+    },
+    {
+     "image": "bb_rewind",
+     "from": 599,
+     "to": 748
+    },
+    {
+     "image": "bb_sign",
+     "from": 748,
+     "to": 898
+    },
+    {
+     "image": "bb_last",
+     "from": 898,
+     "to": 1048
+    },
+    {
+     "image": "bb_last2",
+     "from": 1048,
+     "to": 1197
+    }
+   ]
+  },
+  {
+   "id": "s4_nokia",
+   "from": 2502,
+   "duration": 1149,
+   "audioOffset": 0,
+   "chapter": {
+    "rank": "2위",
+    "name": "노키아"
+   },
+   "captions": [
+    {
+     "from": 0,
+     "to": 58,
+     "segs": [
+      {
+       "t": "2위는 노키아",
+       "red": false
+      }
+     ]
+    },
+    {
+     "from": 58,
+     "to": 110,
+     "segs": [
+      {
+       "t": "2007년, 전 세계에서",
+       "red": false
+      }
+     ]
+    },
+    {
+     "from": 110,
+     "to": 142,
+     "segs": [
+      {
+       "t": "팔린 휴대폰",
+       "red": false
+      }
+     ]
+    },
+    {
+     "from": 142,
+     "to": 187,
+     "segs": [
+      {
+       "t": "10대 중 4대",
+       "red": true
+      },
+      {
+       "t": "가",
+       "red": false
+      }
+     ]
+    },
+    {
+     "from": 187,
+     "to": 226,
+     "segs": [
+      {
+       "t": "노키아였습니다",
+       "red": false
+      }
+     ]
+    },
+    {
+     "from": 226,
+     "to": 269,
+     "segs": [
+      {
+       "t": "그해 애플이 ",
+       "red": false
+      },
+      {
+       "t": "아이폰",
+       "red": true
+      },
+      {
+       "t": "을",
+       "red": false
+      }
+     ]
+    },
+    {
+     "from": 269,
+     "to": 329,
+     "segs": [
+      {
+       "t": "내놓았지만, 노키아는 크게",
+       "red": false
+      }
+     ]
+    },
+    {
+     "from": 329,
+     "to": 374,
+     "segs": [
+      {
+       "t": "걱정하지 않았습니다",
+       "red": false
+      }
+     ]
+    },
+    {
+     "from": 374,
+     "to": 425,
+     "segs": [
+      {
+       "t": "튼튼한 하드웨어와 자체",
+       "red": false
+      }
+     ]
+    },
+    {
+     "from": 425,
+     "to": 485,
+     "segs": [
+      {
+       "t": "운영체제 심비안이면",
+       "red": false
+      }
+     ]
+    },
+    {
+     "from": 485,
+     "to": 528,
+     "segs": [
+      {
+       "t": "충분하다고 믿었죠",
+       "red": false
+      }
+     ]
+    },
+    {
+     "from": 528,
+     "to": 600,
+     "segs": [
+      {
+       "t": "하지만 승부는 기계가 아니라",
+       "red": false
+      }
+     ]
+    },
+    {
+     "from": 600,
+     "to": 655,
+     "segs": [
+      {
+       "t": "앱 생태계",
+       "red": true
+      },
+      {
+       "t": "에서 갈렸습니다",
+       "red": false
+      }
+     ]
+    },
+    {
+     "from": 655,
+     "to": 708,
+     "segs": [
+      {
+       "t": "개발자들은 ",
+       "red": false
+      },
+      {
+       "t": "아이폰",
+       "red": true
+      },
+      {
+       "t": "과",
+       "red": false
+      }
+     ]
+    },
+    {
+     "from": 708,
+     "to": 756,
+     "segs": [
+      {
+       "t": "안드로이드로 몰려갔고",
+       "red": false
+      }
+     ]
+    },
+    {
+     "from": 756,
+     "to": 811,
+     "segs": [
+      {
+       "t": "노키아의 점유율은 해마다",
+       "red": false
+      }
+     ]
+    },
+    {
+     "from": 811,
+     "to": 854,
+     "segs": [
+      {
+       "t": "곤두박질",
+       "red": true
+      },
+      {
+       "t": "쳤습니다",
+       "red": false
+      }
+     ]
+    },
+    {
+     "from": 854,
+     "to": 905,
+     "segs": [
+      {
+       "t": "결국 2013년",
+       "red": false
+      }
+     ]
+    },
+    {
+     "from": 905,
+     "to": 958,
+     "segs": [
+      {
+       "t": "노키아는 휴대폰 사업을",
+       "red": false
+      }
+     ]
+    },
+    {
+     "from": 958,
+     "to": 1013,
+     "segs": [
+      {
+       "t": "마이크로소프트",
+       "red": true
+      },
+      {
+       "t": "에 넘깁니다",
+       "red": false
+      }
+     ]
+    },
+    {
+     "from": 1013,
+     "to": 1080,
+     "segs": [
+      {
+       "t": "세계 1위에서 매각까지",
+       "red": false
+      }
+     ]
+    },
+    {
+     "from": 1080,
+     "to": 1148,
+     "segs": [
+      {
+       "t": "불과 6년",
+       "red": true
+      },
+      {
+       "t": "이었습니다",
+       "red": false
+      }
+     ]
+    }
+   ],
+   "graphics": [
+    {
+     "type": "rank",
+     "at": "2위는",
+     "until": "2007년",
+     "rank": "2위",
+     "name": "노키아",
+     "from": 0,
+     "to": 55
+    },
+    {
+     "type": "donut",
+     "at": "10대 중",
+     "until": "그해",
+     "label": "2007년 세계 휴대폰 점유율",
+     "value": 40,
+     "caption": "10대 중 4대",
+     "from": 137,
+     "to": 223
+    },
+    {
+     "type": "photo",
+     "at": "아이폰을",
+     "until": "튼튼한",
+     "image": "iphone_2007",
+     "from": 248,
+     "to": 371
+    },
+    {
+     "type": "photo",
+     "at": "튼튼한",
+     "until": "하지만",
+     "image": "nokia_n95",
+     "from": 370,
+     "to": 525
+    },
+    {
+     "type": "photo",
+     "at": "개발자들은",
+     "until": "노키아의 점유율은",
+     "image": "iphone_gen",
+     "from": 651,
+     "to": 753
+    },
+    {
+     "type": "bars",
+     "at": "점유율은",
+     "until": "마이크로소프트",
+     "label": "노키아 세계 휴대폰 점유율 (Gartner, 대략치)",
+     "bars": [
+      {
+       "k": "2007",
+       "v": 38
+      },
+      {
+       "k": "2009",
+       "v": 36
+      },
+      {
+       "k": "2011",
+       "v": 24
+      },
+      {
+       "k": "2013",
+       "v": 14
+      }
+     ],
+     "from": 768,
+     "to": 955
+    },
+    {
+     "type": "timeline",
+     "at": "세계 1위에서",
+     "fromLabel": "세계 1위",
+     "toLabel": "사업 매각",
+     "value": "6년",
+     "fromYear": "2007",
+     "toYear": "2013",
+     "from": 1008,
+     "to": 1149
+    }
+   ],
+   "backgrounds": [
+    {
+     "image": "nokia_3310",
+     "from": 0,
+     "to": 144
+    },
+    {
+     "image": "nokia_n95",
+     "from": 144,
+     "to": 287
+    },
+    {
+     "image": "nokia_hq",
+     "from": 287,
+     "to": 431
+    },
+    {
+     "image": "iphone_2007",
+     "from": 431,
+     "to": 575
+    },
+    {
+     "image": "iphone_gen",
+     "from": 575,
+     "to": 718
+    },
+    {
+     "image": "nokia_n95b",
+     "from": 718,
+     "to": 862
+    },
+    {
+     "image": "nokia_hq2",
+     "from": 862,
+     "to": 1006
+    },
+    {
+     "image": "nokia_3310",
+     "from": 1006,
+     "to": 1149
+    }
+   ]
+  },
+  {
+   "id": "s5_kodak",
+   "from": 3652,
+   "duration": 1185,
+   "audioOffset": 0,
+   "chapter": {
+    "rank": "1위",
+    "name": "코닥"
+   },
+   "captions": [
+    {
+     "from": 0,
+     "to": 62,
+     "segs": [
+      {
+       "t": "그리고 대망의 1위는",
+       "red": false
+      }
+     ]
+    },
+    {
+     "from": 62,
+     "to": 98,
+     "segs": [
+      {
+       "t": "코닥입니다",
+       "red": false
+      }
+     ]
+    },
+    {
+     "from": 98,
+     "to": 173,
+     "segs": [
+      {
+       "t": "1975년, 코닥의 젊은",
+       "red": false
+      }
+     ]
+    },
+    {
+     "from": 173,
+     "to": 233,
+     "segs": [
+      {
+       "t": "엔지니어 스티븐 새슨이",
+       "red": false
+      }
+     ]
+    },
+    {
+     "from": 233,
+     "to": 300,
+     "segs": [
+      {
+       "t": "세계 최초",
+       "red": true
+      },
+      {
+       "t": "의 ",
+       "red": false
+      },
+      {
+       "t": "디지털카메라",
+       "red": true
+      },
+      {
+       "t": "를",
+       "red": false
+      }
+     ]
+    },
+    {
+     "from": 300,
+     "to": 334,
+     "segs": [
+      {
+       "t": "만들어 냈습니다",
+       "red": false
+      }
+     ]
+    },
+    {
+     "from": 334,
+     "to": 394,
+     "segs": [
+      {
+       "t": "그런데 이를 본 경영진의",
+       "red": false
+      }
+     ]
+    },
+    {
+     "from": 394,
+     "to": 450,
+     "segs": [
+      {
+       "t": "반응은 이랬다고 합니다",
+       "red": false
+      }
+     ]
+    },
+    {
+     "from": 450,
+     "to": 478,
+     "segs": [
+      {
+       "t": "\"귀엽네",
+       "red": false
+      }
+     ]
+    },
+    {
+     "from": 478,
+     "to": 499,
+     "segs": [
+      {
+       "t": "그런데",
+       "red": false
+      }
+     ]
+    },
+    {
+     "from": 499,
+     "to": 545,
+     "segs": [
+      {
+       "t": "아무한테도 말하지 마",
+       "red": true
+      },
+      {
+       "t": ".\"",
+       "red": false
+      }
+     ]
+    },
+    {
+     "from": 545,
+     "to": 581,
+     "segs": [
+      {
+       "t": "필름으로 돈을 버는",
+       "red": false
+      }
+     ]
+    },
+    {
+     "from": 581,
+     "to": 648,
+     "segs": [
+      {
+       "t": "회사에게, 필름이 필요 없는",
+       "red": false
+      }
+     ]
+    },
+    {
+     "from": 648,
+     "to": 710,
+     "segs": [
+      {
+       "t": "카메라는 ",
+       "red": false
+      },
+      {
+       "t": "위협",
+       "red": true
+      },
+      {
+       "t": "이었던 겁니다",
+       "red": false
+      }
+     ]
+    },
+    {
+     "from": 710,
+     "to": 782,
+     "segs": [
+      {
+       "t": "코닥은 디지털 기술을 쥐고도",
+       "red": false
+      }
+     ]
+    },
+    {
+     "from": 782,
+     "to": 842,
+     "segs": [
+      {
+       "t": "필름을 지키는 데 매달렸고",
+       "red": false
+      }
+     ]
+    },
+    {
+     "from": 842,
+     "to": 898,
+     "segs": [
+      {
+       "t": "그사이 세상은 디지털로",
+       "red": false
+      }
+     ]
+    },
+    {
+     "from": 898,
+     "to": 929,
+     "segs": [
+      {
+       "t": "넘어갔습니다",
+       "red": false
+      }
+     ]
+    },
+    {
+     "from": 929,
+     "to": 1003,
+     "segs": [
+      {
+       "t": "2012년, 코닥은 결국",
+       "red": false
+      }
+     ]
+    },
+    {
+     "from": 1003,
+     "to": 1056,
+     "segs": [
+      {
+       "t": "파산보호",
+       "red": true
+      },
+      {
+       "t": "를 신청합니다",
+       "red": false
+      }
+     ]
+    },
+    {
+     "from": 1056,
+     "to": 1111,
+     "segs": [
+      {
+       "t": "자기가 발명한 미래",
+       "red": true
+      },
+      {
+       "t": "에",
+       "red": false
+      }
+     ]
+    },
+    {
+     "from": 1111,
+     "to": 1184,
+     "segs": [
+      {
+       "t": "스스로 무너진 셈입니다",
+       "red": false
+      }
+     ]
+    }
+   ],
+   "graphics": [
+    {
+     "type": "rank",
+     "at": "1위는",
+     "until": "1975년",
+     "rank": "1위",
+     "name": "코닥",
+     "from": 34,
+     "to": 95
+    },
+    {
+     "type": "photo",
+     "at": "세계 최초의",
+     "until": "그런데 이를",
+     "image": "kodak_sasson",
+     "from": 228,
+     "to": 331
+    },
+    {
+     "type": "quote",
+     "at": "귀엽네",
+     "until": "필름으로",
+     "label": "디지털카메라를 본 경영진의 반응 (새슨의 회고)",
+     "value": "\"귀엽네. 그런데\n아무한테도 말하지 마.\"",
+     "from": 447,
+     "to": 542
+    },
+    {
+     "type": "photo",
+     "at": "필름으로",
+     "until": "그사이",
+     "image": "kodak_film",
+     "from": 540,
+     "to": 839
+    },
+    {
+     "type": "photo",
+     "at": "2012년",
+     "until": "END",
+     "image": "kodak_tower2",
+     "from": 924,
+     "to": 1185
+    },
+    {
+     "type": "stat",
+     "at": "2012년",
+     "until": "자기가",
+     "label": "2012년 1월",
+     "value": "파산보호 신청",
+     "from": 924,
+     "to": 1053
+    }
+   ],
+   "backgrounds": [
+    {
+     "image": "kodak_tower",
+     "from": 0,
+     "to": 169
+    },
+    {
+     "image": "kodak_sasson",
+     "from": 169,
+     "to": 339
+    },
+    {
+     "image": "kodak_brownie",
+     "from": 339,
+     "to": 508
+    },
+    {
+     "image": "kodak_film",
+     "from": 508,
+     "to": 677
+    },
+    {
+     "image": "kodak_instamatic",
+     "from": 677,
+     "to": 847
+    },
+    {
+     "image": "kodak_tower2",
+     "from": 847,
+     "to": 1016
+    },
+    {
+     "image": "kodak_film2",
+     "from": 1016,
+     "to": 1185
+    }
+   ]
+  },
+  {
+   "id": "s6_outro",
+   "from": 4837,
+   "duration": 562,
+   "audioOffset": 0,
+   "chapter": null,
+   "captions": [
+    {
+     "from": 0,
+     "to": 53,
+     "segs": [
+      {
+       "t": "세 기업의 공통점은",
+       "red": false
+      }
+     ]
+    },
+    {
+     "from": 53,
+     "to": 89,
+     "segs": [
+      {
+       "t": "분명합니다",
+       "red": false
+      }
+     ]
+    },
+    {
+     "from": 89,
+     "to": 146,
+     "segs": [
+      {
+       "t": "변화를 ",
+       "red": false
+      },
+      {
+       "t": "몰랐던 게 아니라",
+       "red": true
+      }
+     ]
+    },
+    {
+     "from": 146,
+     "to": 204,
+     "segs": [
+      {
+       "t": "지금의 돈벌이를 지키느라",
+       "red": false
+      }
+     ]
+    },
+    {
+     "from": 204,
+     "to": 247,
+     "segs": [
+      {
+       "t": "외면",
+       "red": true
+      },
+      {
+       "t": "했다는 겁니다",
+       "red": false
+      }
+     ]
+    },
+    {
+     "from": 247,
+     "to": 307,
+     "segs": [
+      {
+       "t": "오늘의 1등이 내일도",
+       "red": false
+      }
+     ]
+    },
+    {
+     "from": 307,
+     "to": 374,
+     "segs": [
+      {
+       "t": "1등이라는 ",
+       "red": false
+      },
+      {
+       "t": "보장은 없습니다",
+       "red": true
+      }
+     ]
+    },
+    {
+     "from": 374,
+     "to": 420,
+     "segs": [
+      {
+       "t": "영상이 도움이 되셨다면",
+       "red": false
+      }
+     ]
+    },
+    {
+     "from": 420,
+     "to": 502,
+     "segs": [
+      {
+       "t": "구독과 좋아요",
+       "red": true
+      },
+      {
+       "t": " 부탁드립니다",
+       "red": false
+      }
+     ]
+    }
+   ],
+   "graphics": [
+    {
+     "type": "recap",
+     "at": "세 기업의",
+     "until": "오늘의",
+     "items": [
+      {
+       "rank": "3위",
+       "name": "블록버스터",
+       "image": "bb_store"
+      },
+      {
+       "rank": "2위",
+       "name": "노키아",
+       "image": "nokia_3310"
+      },
+      {
+       "rank": "1위",
+       "name": "코닥",
+       "image": "kodak_film"
+      }
+     ],
+     "from": 0,
+     "to": 244
+    },
+    {
+     "type": "subscribe",
+     "at": "구독과",
+     "from": 416,
+     "to": 562
+    }
+   ],
+   "backgrounds": [
+    {
+     "image": "abandoned_mall",
+     "from": 0,
+     "to": 141
+    },
+    {
+     "image": "bb_last",
+     "from": 141,
+     "to": 281
+    },
+    {
+     "image": "nokia_3310",
+     "from": 281,
+     "to": 422
+    },
+    {
+     "image": "kodak_tower",
+     "from": 422,
+     "to": 562
+    }
+   ]
+  }
+ ],
+ "music": [
+  {
+   "track": "a",
+   "from": 12,
+   "to": 1305
+  },
+  {
+   "track": "b",
+   "from": 1305,
+   "to": 2502
+  },
+  {
+   "track": "a",
+   "from": 2502,
+   "to": 3651
+  },
+  {
+   "track": "b",
+   "from": 3652,
+   "to": 4837
+  },
+  {
+   "track": "a",
+   "from": 4837,
+   "to": 5399
+  }
+ ],
+ "credits": {}
+}
