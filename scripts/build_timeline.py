@@ -14,7 +14,7 @@ import subprocess
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 FPS = 30
 LEAD_IN = 0.3
-GAP = 1.0
+GAP = float(os.environ.get("GAP", 1.0))
 TAIL = 3.6
 MAX_CHUNK = 15
 MIN_CHUNK = 6

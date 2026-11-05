@@ -205,11 +205,15 @@ if __name__ == "__main__":
         for v in vs:
             if v.get("image") and not have(v["image"]):
                 alt = FALLBACK.get(v["image"])
+                seen = set()
+                while alt and not have(alt) and alt not in seen:
+                    seen.add(alt)
+                    alt = FALLBACK.get(alt)
                 assert alt and have(alt), f"no image or fallback for {v['image']}"
                 swapped.add(f"{v['image']}->{alt}")
                 v["image"] = alt
     for r in BOARD["ranks"]:
-        if not have(r["image"]):
+        while not have(r["image"]):
             r["image"] = FALLBACK[r["image"]]
     if swapped:
         print("fallbacks used:", sorted(swapped))

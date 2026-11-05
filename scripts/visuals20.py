@@ -90,7 +90,7 @@ FALLBACK = {
     "tru_closing2": "dead_mall2", "tru_geoffrey": "tru_store", "amazon_fc": "dead_mall2", "amazon_logo": "amazon_fc",
     "bb_bold": "iphone_gen", "bb_curve": "bb_bold", "obama_bb": "bb_curve", "balsillie": "bb_curve",
     "bb_storm": "bb_curve", "rim_waterloo": "bb_bold",
-    "sears_tower": "dallas2", "sears_catalog": "kodak_film", "sears_wishbook": "sears_catalog",
+    "sears_tower": "dead_mall2", "sears_catalog": "abandoned_mall", "sears_wishbook": "sears_catalog",
     "sears_closing": "abandoned_mall", "sears_sixcorners": "sears_closing",
     "elop": "nokia_hq2", "salo": "nokia_hq", "rochester": "kodak_tower2", "instagram": "iphone_gen",
     "fuji_hq": "kodak_film2",
