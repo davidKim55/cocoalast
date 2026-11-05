@@ -134,8 +134,10 @@ export const RankBoard: React.FC<{ v: Visual; board: Board }> = ({ v, board }) =
   const local = frame - v.from;
   const cur = v.current ?? 0;
   const bgImage = cur < board.ranks.length ? board.ranks[cur].image : board.finalImage;
-  const tileW = 330;
-  const gap = 46;
+  const n = board.ranks.length;
+  const tileW = n <= 3 ? 330 : 222;
+  const gap = n <= 3 ? 46 : 22;
+  const k = tileW / 330; // shrink type with the tiles
   const startX = (1920 - (board.ranks.length * tileW + (board.ranks.length - 1) * gap)) / 2;
   const prev = Math.max(0, cur - 1);
   const ux = interpolate(local, [10, 26], [prev, Math.min(cur, board.ranks.length - 1)], clamp);
@@ -170,15 +172,15 @@ export const RankBoard: React.FC<{ v: Visual; board: Board }> = ({ v, board }) =
               transform: `translateY(${(1 - s) * 60}px)`,
             }}
           >
-            <div style={{ color: C.cyan, fontSize: 62, fontWeight: 900, marginTop: 28 }}>{r.rank}</div>
+            <div style={{ color: C.cyan, fontSize: 62 * Math.max(k, 0.8), fontWeight: 900, marginTop: 28 }}>{r.rank}</div>
             {done ? (
               <>
-                <div style={{ color: C.white, fontSize: 58, fontWeight: 900, marginTop: 70 }}>{r.name}</div>
-                <div style={{ color: C.red, fontSize: 42, fontWeight: 900, marginTop: 26 }}>{r.result}</div>
+                <div style={{ color: C.white, fontSize: 58 * Math.max(k, 0.72), fontWeight: 900, marginTop: 70, letterSpacing: -1 }}>{r.name}</div>
+                <div style={{ color: C.red, fontSize: 42 * Math.max(k, 0.8), fontWeight: 900, marginTop: 26, lineHeight: 1.2, padding: "0 10px" }}>{r.result}</div>
               </>
             ) : (
               <>
-                <div style={{ color: C.cyan, fontSize: 220, fontWeight: 900, lineHeight: 1.05, marginTop: 6 }}>?</div>
+                <div style={{ color: C.cyan, fontSize: 220 * Math.max(k, 0.8), fontWeight: 900, lineHeight: 1.05, marginTop: 6 }}>?</div>
                 <div style={{ color: "#9aa4b2", fontSize: 40, fontWeight: 800 }}>???</div>
               </>
             )}

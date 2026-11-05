@@ -2,7 +2,6 @@ import React from "react";
 import { AbsoluteFill, Audio, interpolate, Sequence, staticFile, useCurrentFrame } from "remotion";
 import { Board, BottomSub, Callout, Media, NumCard, PhotoCard, RankBoard, RankTitle, TextItem, Visual } from "./Graphics";
 import { C, FONT, loadFonts, outlined } from "./theme";
-import timeline from "./timeline.json";
 
 type Caption = { from: number; to: number; text: string };
 type SceneData = {
@@ -15,8 +14,9 @@ type SceneData = {
   captions: Caption[];
 };
 
-const board = timeline.board as unknown as Board;
-const credits = timeline.credits as Record<string, { artist: string; license: string; kind?: string }>;
+// Set by <Main> from its timeline prop (one composition renders per page).
+let board: Board;
+let credits: Record<string, { artist: string; license: string; kind?: string }> = {};
 const XFADE = 4;
 
 const VisualLayer: React.FC<{ v: Visual; first: boolean }> = ({ v, first }) => {
@@ -98,8 +98,10 @@ const MusicCredit: React.FC = () => (
   </div>
 );
 
-export const Main: React.FC = () => {
+export const Main: React.FC<{ tl: any }> = ({ tl: timeline }) => {
   loadFonts();
+  board = timeline.board as Board;
+  credits = timeline.credits;
   const scenes = timeline.scenes as unknown as SceneData[];
   return (
     <AbsoluteFill style={{ background: "#000", fontFamily: FONT }}>
@@ -108,7 +110,7 @@ export const Main: React.FC = () => {
           <Scene sc={sc} />
         </Sequence>
       ))}
-      {timeline.music.map((m, i) => (
+      {timeline.music.map((m: { track: string; from: number; to: number }, i: number) => (
         <Sequence key={i} from={m.from} durationInFrames={m.to - m.from}>
           <Music track={m.track} len={m.to - m.from} />
         </Sequence>

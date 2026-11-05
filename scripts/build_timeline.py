@@ -19,7 +19,10 @@ TAIL = 3.6
 MAX_CHUNK = 15
 MIN_CHUNK = 6
 
-script = json.load(open(os.path.join(ROOT, "content/script.json"), encoding="utf-8"))
+import sys
+SCRIPT = sys.argv[1] if len(sys.argv) > 1 else "content/script.json"
+OUTPUT = sys.argv[2] if len(sys.argv) > 2 else "src/timeline.json"
+script = json.load(open(os.path.join(ROOT, SCRIPT), encoding="utf-8"))
 videos = json.load(open(os.path.join(ROOT, "content/videos.json"), encoding="utf-8"))
 cpath = os.path.join(ROOT, "content/credits.json")
 credits = json.load(open(cpath, encoding="utf-8")) if os.path.exists(cpath) else {}
@@ -154,8 +157,8 @@ for idx, s in enumerate(script["scenes"]):
                        "visuals": visuals, "texts": texts, "captions": captions})
     t += dur
 
-music_plan = {"s1_hook": "a", "s2_intro": "a", "s3_blockbuster": "b", "s4_nokia": "a",
-              "s5_kodak": "b", "s6_outro": "a"}
+music_plan = script.get("music") or {"s1_hook": "a", "s2_intro": "a", "s3_blockbuster": "b", "s4_nokia": "a",
+                                     "s5_kodak": "b", "s6_outro": "a"}
 music = []
 for sc in scenes_out:
     tr = music_plan.get(sc["id"], "a")
@@ -172,7 +175,7 @@ if missing:
 json.dump({"fps": FPS, "width": 1920, "height": 1080, "durationInFrames": f(t),
            "board": script["board"], "scenes": scenes_out, "music": music,
            "credits": {k: v for k, v in credits.items() if k in used}},
-          open(os.path.join(ROOT, "src/timeline.json"), "w", encoding="utf-8"), ensure_ascii=False, indent=1)
+          open(os.path.join(ROOT, OUTPUT), "w", encoding="utf-8"), ensure_ascii=False, indent=1)
 print(f"total {t:.1f}s, {f(t)} frames")
 for sc in scenes_out:
     print(f"  {sc['id']}: {sc['duration'] / FPS:.1f}s, {len(sc['visuals'])} visuals, "

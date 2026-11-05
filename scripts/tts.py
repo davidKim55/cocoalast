@@ -12,14 +12,18 @@ import sys
 import urllib.request
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-script = json.load(open(os.path.join(ROOT, "content/script.json"), encoding="utf-8"))
+args = sys.argv[1:]
+script_path = "content/script.json"
+if args and args[0].endswith(".json"):
+    script_path = args.pop(0)
+script = json.load(open(os.path.join(ROOT, script_path), encoding="utf-8"))
 os.makedirs(os.path.join(ROOT, "content/alignment"), exist_ok=True)
 os.makedirs(os.path.join(ROOT, "public/audio"), exist_ok=True)
 
 voice = script["voice_id"]
 model = script["model_id"]
 scenes = script["scenes"]
-only = set(sys.argv[1:])
+only = set(args)
 
 for i, s in enumerate(scenes):
     if only and s["id"] not in only:
