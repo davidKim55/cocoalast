@@ -24,7 +24,7 @@ export const Thumbnail: React.FC = () => {
       </svg>
       <AbsoluteFill style={{ background: "linear-gradient(180deg, rgba(0,0,0,0) 35%, rgba(0,0,0,0.75) 100%)" }} />
       <div style={{ position: "absolute", right: 34, top: 30, textAlign: "right", color: "#7CFF6B", fontSize: 50, fontWeight: 900, lineHeight: 1.15, ...outlined(10) }}>
-        넷플릭스를 5천만 달러에
+        넷플릭스를 560억 원에
         <br />
         안 산 회사, 지금은?
       </div>
