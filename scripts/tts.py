@@ -50,12 +50,19 @@ for i, s in enumerate(scenes):
         data=json.dumps(body).encode(),
         headers={"Content-Type": "application/json"},
     )
-    try:
-        with urllib.request.urlopen(req, timeout=180) as r:
-            d = json.loads(r.read())
-    except urllib.error.HTTPError as e:
-        print("ERROR", s["id"], e.code, e.read()[:500])
-        sys.exit(1)
+    import time
+    for attempt in range(4):
+        try:
+            with urllib.request.urlopen(req, timeout=300) as r:
+                d = json.loads(r.read())
+            break
+        except urllib.error.HTTPError as e:
+            if e.code >= 500 and attempt < 3:
+                print("retry", s["id"], e.code, flush=True)
+                time.sleep(20 * (attempt + 1))
+                continue
+            print("ERROR", s["id"], e.code, e.read()[:500])
+            sys.exit(1)
     open(mp3_path, "wb").write(base64.b64decode(d["audio_base64"]))
     a = d["alignment"]
     json.dump({
