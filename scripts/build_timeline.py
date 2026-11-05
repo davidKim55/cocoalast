@@ -119,7 +119,9 @@ for idx, s in enumerate(script["scenes"]):
             else:
                 cur = {"t": ch, "red": r}
                 segs.append(cur)
-        captions.append({"from": f(start), "to": f(end), "segs": segs})
+        # Emphasis lines (red keyword or a quote) go big in the centre; the rest sit at the bottom.
+        emph = any(sg["red"] for sg in segs) or '"' in raw
+        captions.append({"from": f(start), "to": f(end), "segs": segs, "emph": emph})
 
     def when(phrase, after=0):
         k = text.find(phrase, after)
@@ -145,6 +147,8 @@ for idx, s in enumerate(script["scenes"]):
             nxt = graphics[i + 1]["from"] if i + 1 < len(graphics) else f(dur)
             g["to"] = nxt
         g["to"] = min(g["to"], f(dur))
+    for c in captions:
+        c["center"] = c.pop("emph") and not any(g["from"] < c["to"] and g["to"] > c["from"] for g in graphics)
 
     bgs = s["bg"]
     seg = dur / len(bgs)

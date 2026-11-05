@@ -19,7 +19,8 @@
        "t": "2000년, 미국 댈러스의",
        "red": false
       }
-     ]
+     ],
+     "center": false
     },
     {
      "from": 74,
@@ -29,7 +30,8 @@
        "t": "한 회의실",
        "red": false
       }
-     ]
+     ],
+     "center": false
     },
     {
      "from": 113,
@@ -39,7 +41,8 @@
        "t": "작은 스타트업 대표 두 명이",
        "red": false
       }
-     ]
+     ],
+     "center": false
     },
     {
      "from": 172,
@@ -53,7 +56,8 @@
        "t": " 기업을",
        "red": false
       }
-     ]
+     ],
+     "center": true
     },
     {
      "from": 205,
@@ -63,7 +67,8 @@
        "t": "찾아갔습니다",
        "red": false
       }
-     ]
+     ],
+     "center": false
     },
     {
      "from": 239,
@@ -73,7 +78,8 @@
        "t": "제안은 단 하나",
        "red": false
       }
-     ]
+     ],
+     "center": false
     },
     {
      "from": 284,
@@ -91,7 +97,8 @@
        "t": "에",
        "red": false
       }
-     ]
+     ],
+     "center": false
     },
     {
      "from": 338,
@@ -101,7 +108,8 @@
        "t": "사 주십시오.\"",
        "red": false
       }
-     ]
+     ],
+     "center": false
     },
     {
      "from": 374,
@@ -119,7 +127,8 @@
        "t": "이었습니다",
        "red": false
       }
-     ]
+     ],
+     "center": true
     },
     {
      "from": 442,
@@ -129,7 +138,8 @@
        "t": "그 스타트업의 이름은",
        "red": false
       }
-     ]
+     ],
+     "center": false
     },
     {
      "from": 482,
@@ -139,7 +149,8 @@
        "t": "넷플릭스",
        "red": true
       }
-     ]
+     ],
+     "center": false
     },
     {
      "from": 511,
@@ -149,7 +160,8 @@
        "t": "그리고 웃었던 회사는",
        "red": false
       }
-     ]
+     ],
+     "center": false
     },
     {
      "from": 564,
@@ -167,7 +179,8 @@
        "t": "했습니다",
        "red": false
       }
-     ]
+     ],
+     "center": false
     }
    ],
    "graphics": [
@@ -243,7 +256,8 @@
        "t": "한때 세상을 지배했지만",
        "red": false
       }
-     ]
+     ],
+     "center": false
     },
     {
      "from": 65,
@@ -261,7 +275,8 @@
        "t": "한순간에",
        "red": true
       }
-     ]
+     ],
+     "center": true
     },
     {
      "from": 122,
@@ -271,7 +286,8 @@
        "t": "무너진 기업들",
        "red": false
       }
-     ]
+     ],
+     "center": false
     },
     {
      "from": 166,
@@ -281,7 +297,8 @@
        "t": "오늘은 그중에서도 가장",
        "red": false
       }
-     ]
+     ],
+     "center": false
     },
     {
      "from": 221,
@@ -299,7 +316,8 @@
        "t": "를",
        "red": false
       }
-     ]
+     ],
+     "center": false
     },
     {
      "from": 283,
@@ -309,7 +327,8 @@
        "t": "준비했습니다",
        "red": false
       }
-     ]
+     ],
+     "center": false
     },
     {
      "from": 319,
@@ -319,7 +338,8 @@
        "t": "끝까지 보시면",
        "red": false
       }
-     ]
+     ],
+     "center": false
     },
     {
      "from": 348,
@@ -329,7 +349,8 @@
        "t": "지금 잘나가는 기업들도",
        "red": false
       }
-     ]
+     ],
+     "center": false
     },
     {
      "from": 401,
@@ -339,7 +360,8 @@
        "t": "다르게 보이실 겁니다",
        "red": false
       }
-     ]
+     ],
+     "center": false
     },
     {
      "from": 446,
@@ -357,7 +379,8 @@
        "t": " 눌러 주시면",
        "red": false
       }
-     ]
+     ],
+     "center": false
     },
     {
      "from": 506,
@@ -367,7 +390,8 @@
        "t": "더 유익한 소식 먼저 전해",
        "red": false
       }
-     ]
+     ],
+     "center": false
     },
     {
      "from": 564,
@@ -377,7 +401,8 @@
        "t": "드리겠습니다",
        "red": false
       }
-     ]
+     ],
+     "center": false
     },
     {
      "from": 598,
@@ -387,7 +412,8 @@
        "t": "3위부터 보시죠",
        "red": false
       }
-     ]
+     ],
+     "center": false
     }
    ],
    "graphics": [
@@ -450,7 +476,8 @@
        "t": "3위는 방금 말씀드린",
        "red": false
       }
-     ]
+     ],
+     "center": false
     },
     {
      "from": 55,
@@ -460,7 +487,8 @@
        "t": "블록버스터입니다",
        "red": false
       }
-     ]
+     ],
+     "center": false
     },
     {
      "from": 98,
@@ -470,7 +498,8 @@
        "t": "2004년 전성기",
        "red": false
       }
-     ]
+     ],
+     "center": false
     },
     {
      "from": 154,
@@ -488,7 +517,8 @@
        "t": "이",
        "red": false
       }
-     ]
+     ],
+     "center": false
     },
     {
      "from": 204,
@@ -498,7 +528,8 @@
        "t": "넘었습니다",
        "red": false
       }
-     ]
+     ],
+     "center": false
     },
     {
      "from": 233,
@@ -508,7 +539,8 @@
        "t": "금요일 밤이면 비디오를",
        "red": false
       }
-     ]
+     ],
+     "center": false
     },
     {
      "from": 283,
@@ -518,7 +550,8 @@
        "t": "빌리려는 가족들로 매장 앞이 붐볐죠",
        "red": false
       }
-     ]
+     ],
+     "center": false
     },
     {
      "from": 370,
@@ -528,7 +561,8 @@
        "t": "그런데 이 회사의 진짜",
        "red": false
       }
-     ]
+     ],
+     "center": false
     },
     {
      "from": 427,
@@ -538,7 +572,8 @@
        "t": "돈줄은 따로 있었습니다",
        "red": false
       }
-     ]
+     ],
+     "center": false
     },
     {
      "from": 482,
@@ -552,7 +587,8 @@
        "t": "연체료",
        "red": true
       }
-     ]
+     ],
+     "center": false
     },
     {
      "from": 530,
@@ -570,7 +606,8 @@
        "t": " 수입만",
        "red": false
       }
-     ]
+     ],
+     "center": false
     },
     {
      "from": 576,
@@ -584,7 +621,8 @@
        "t": "에 달했습니다",
        "red": false
       }
-     ]
+     ],
+     "center": false
     },
     {
      "from": 624,
@@ -598,7 +636,8 @@
        "t": "이 곧 수익이었던 겁니다",
        "red": false
       }
-     ]
+     ],
+     "center": false
     },
     {
      "from": 715,
@@ -608,7 +647,8 @@
        "t": "넷플릭스는 정확히 그 틈을",
        "red": false
       }
-     ]
+     ],
+     "center": false
     },
     {
      "from": 780,
@@ -618,7 +658,8 @@
        "t": "파고들었습니다",
        "red": false
       }
-     ]
+     ],
+     "center": false
     },
     {
      "from": 818,
@@ -632,7 +673,8 @@
        "t": " 우편 대여",
        "red": false
       }
-     ]
+     ],
+     "center": false
     },
     {
      "from": 869,
@@ -642,7 +684,8 @@
        "t": "그리고 스트리밍",
        "red": false
       }
-     ]
+     ],
+     "center": false
     },
     {
      "from": 917,
@@ -652,7 +695,8 @@
        "t": "고객이 떠나기 시작하자",
        "red": false
       }
-     ]
+     ],
+     "center": false
     },
     {
      "from": 965,
@@ -662,7 +706,8 @@
        "t": "블록버스터는 2010년",
        "red": false
       }
-     ]
+     ],
+     "center": false
     },
     {
      "from": 1022,
@@ -676,7 +721,8 @@
        "t": "을 신청했고",
        "red": false
       }
-     ]
+     ],
+     "center": false
     },
     {
      "from": 1063,
@@ -686,7 +732,8 @@
        "t": "지금은 미국 오리건주에",
        "red": false
       }
-     ]
+     ],
+     "center": false
     },
     {
      "from": 1123,
@@ -700,7 +747,8 @@
        "t": "만 남아 있습니다",
        "red": false
       }
-     ]
+     ],
+     "center": false
     }
    ],
    "graphics": [
@@ -841,7 +889,8 @@
        "t": "2위는 노키아",
        "red": false
       }
-     ]
+     ],
+     "center": false
     },
     {
      "from": 58,
@@ -851,7 +900,8 @@
        "t": "2007년, 전 세계에서",
        "red": false
       }
-     ]
+     ],
+     "center": false
     },
     {
      "from": 110,
@@ -861,7 +911,8 @@
        "t": "팔린 휴대폰",
        "red": false
       }
-     ]
+     ],
+     "center": false
     },
     {
      "from": 142,
@@ -875,7 +926,8 @@
        "t": "가",
        "red": false
       }
-     ]
+     ],
+     "center": false
     },
     {
      "from": 187,
@@ -885,7 +937,8 @@
        "t": "노키아였습니다",
        "red": false
       }
-     ]
+     ],
+     "center": false
     },
     {
      "from": 226,
@@ -903,7 +956,8 @@
        "t": "을",
        "red": false
       }
-     ]
+     ],
+     "center": false
     },
     {
      "from": 269,
@@ -913,7 +967,8 @@
        "t": "내놓았지만, 노키아는 크게",
        "red": false
       }
-     ]
+     ],
+     "center": false
     },
     {
      "from": 329,
@@ -923,7 +978,8 @@
        "t": "걱정하지 않았습니다",
        "red": false
       }
-     ]
+     ],
+     "center": false
     },
     {
      "from": 374,
@@ -933,7 +989,8 @@
        "t": "튼튼한 하드웨어와 자체",
        "red": false
       }
-     ]
+     ],
+     "center": false
     },
     {
      "from": 425,
@@ -943,7 +1000,8 @@
        "t": "운영체제 심비안이면",
        "red": false
       }
-     ]
+     ],
+     "center": false
     },
     {
      "from": 485,
@@ -953,7 +1011,8 @@
        "t": "충분하다고 믿었죠",
        "red": false
       }
-     ]
+     ],
+     "center": false
     },
     {
      "from": 528,
@@ -963,7 +1022,8 @@
        "t": "하지만 승부는 기계가 아니라",
        "red": false
       }
-     ]
+     ],
+     "center": false
     },
     {
      "from": 600,
@@ -977,7 +1037,8 @@
        "t": "에서 갈렸습니다",
        "red": false
       }
-     ]
+     ],
+     "center": false
     },
     {
      "from": 655,
@@ -995,7 +1056,8 @@
        "t": "과",
        "red": false
       }
-     ]
+     ],
+     "center": false
     },
     {
      "from": 708,
@@ -1005,7 +1067,8 @@
        "t": "안드로이드로 몰려갔고",
        "red": false
       }
-     ]
+     ],
+     "center": false
     },
     {
      "from": 756,
@@ -1015,7 +1078,8 @@
        "t": "노키아의 점유율은 해마다",
        "red": false
       }
-     ]
+     ],
+     "center": false
     },
     {
      "from": 811,
@@ -1029,7 +1093,8 @@
        "t": "쳤습니다",
        "red": false
       }
-     ]
+     ],
+     "center": false
     },
     {
      "from": 854,
@@ -1039,7 +1104,8 @@
        "t": "결국 2013년",
        "red": false
       }
-     ]
+     ],
+     "center": false
     },
     {
      "from": 905,
@@ -1049,7 +1115,8 @@
        "t": "노키아는 휴대폰 사업을",
        "red": false
       }
-     ]
+     ],
+     "center": false
     },
     {
      "from": 958,
@@ -1063,7 +1130,8 @@
        "t": "에 넘깁니다",
        "red": false
       }
-     ]
+     ],
+     "center": false
     },
     {
      "from": 1013,
@@ -1073,7 +1141,8 @@
        "t": "세계 1위에서 매각까지",
        "red": false
       }
-     ]
+     ],
+     "center": false
     },
     {
      "from": 1080,
@@ -1087,7 +1156,8 @@
        "t": "이었습니다",
        "red": false
       }
-     ]
+     ],
+     "center": false
     }
    ],
    "graphics": [
@@ -1249,7 +1319,8 @@
        "t": "그리고 대망의 1위는",
        "red": false
       }
-     ]
+     ],
+     "center": false
     },
     {
      "from": 62,
@@ -1259,7 +1330,8 @@
        "t": "코닥입니다",
        "red": false
       }
-     ]
+     ],
+     "center": false
     },
     {
      "from": 98,
@@ -1269,7 +1341,8 @@
        "t": "1975년, 코닥의 젊은",
        "red": false
       }
-     ]
+     ],
+     "center": false
     },
     {
      "from": 173,
@@ -1279,7 +1352,8 @@
        "t": "엔지니어 스티븐 새슨이",
        "red": false
       }
-     ]
+     ],
+     "center": false
     },
     {
      "from": 233,
@@ -1301,7 +1375,8 @@
        "t": "를",
        "red": false
       }
-     ]
+     ],
+     "center": false
     },
     {
      "from": 300,
@@ -1311,7 +1386,8 @@
        "t": "만들어 냈습니다",
        "red": false
       }
-     ]
+     ],
+     "center": false
     },
     {
      "from": 334,
@@ -1321,7 +1397,8 @@
        "t": "그런데 이를 본 경영진의",
        "red": false
       }
-     ]
+     ],
+     "center": false
     },
     {
      "from": 394,
@@ -1331,7 +1408,8 @@
        "t": "반응은 이랬다고 합니다",
        "red": false
       }
-     ]
+     ],
+     "center": false
     },
     {
      "from": 450,
@@ -1341,7 +1419,8 @@
        "t": "\"귀엽네",
        "red": false
       }
-     ]
+     ],
+     "center": false
     },
     {
      "from": 478,
@@ -1351,7 +1430,8 @@
        "t": "그런데",
        "red": false
       }
-     ]
+     ],
+     "center": false
     },
     {
      "from": 499,
@@ -1365,7 +1445,8 @@
        "t": ".\"",
        "red": false
       }
-     ]
+     ],
+     "center": false
     },
     {
      "from": 545,
@@ -1375,7 +1456,8 @@
        "t": "필름으로 돈을 버는",
        "red": false
       }
-     ]
+     ],
+     "center": false
     },
     {
      "from": 581,
@@ -1385,7 +1467,8 @@
        "t": "회사에게, 필름이 필요 없는",
        "red": false
       }
-     ]
+     ],
+     "center": false
     },
     {
      "from": 648,
@@ -1403,7 +1486,8 @@
        "t": "이었던 겁니다",
        "red": false
       }
-     ]
+     ],
+     "center": false
     },
     {
      "from": 710,
@@ -1413,7 +1497,8 @@
        "t": "코닥은 디지털 기술을 쥐고도",
        "red": false
       }
-     ]
+     ],
+     "center": false
     },
     {
      "from": 782,
@@ -1423,7 +1508,8 @@
        "t": "필름을 지키는 데 매달렸고",
        "red": false
       }
-     ]
+     ],
+     "center": false
     },
     {
      "from": 842,
@@ -1433,7 +1519,8 @@
        "t": "그사이 세상은 디지털로",
        "red": false
       }
-     ]
+     ],
+     "center": false
     },
     {
      "from": 898,
@@ -1443,7 +1530,8 @@
        "t": "넘어갔습니다",
        "red": false
       }
-     ]
+     ],
+     "center": false
     },
     {
      "from": 929,
@@ -1453,7 +1541,8 @@
        "t": "2012년, 코닥은 결국",
        "red": false
       }
-     ]
+     ],
+     "center": false
     },
     {
      "from": 1003,
@@ -1467,7 +1556,8 @@
        "t": "를 신청합니다",
        "red": false
       }
-     ]
+     ],
+     "center": false
     },
     {
      "from": 1056,
@@ -1481,7 +1571,8 @@
        "t": "에",
        "red": false
       }
-     ]
+     ],
+     "center": false
     },
     {
      "from": 1111,
@@ -1491,7 +1582,8 @@
        "t": "스스로 무너진 셈입니다",
        "red": false
       }
-     ]
+     ],
+     "center": false
     }
    ],
    "graphics": [
@@ -1614,7 +1706,8 @@
        "t": "세 기업의 공통점은",
        "red": false
       }
-     ]
+     ],
+     "center": false
     },
     {
      "from": 53,
@@ -1624,7 +1717,8 @@
        "t": "분명합니다",
        "red": false
       }
-     ]
+     ],
+     "center": false
     },
     {
      "from": 89,
@@ -1638,7 +1732,8 @@
        "t": "몰랐던 게 아니라",
        "red": true
       }
-     ]
+     ],
+     "center": false
     },
     {
      "from": 146,
@@ -1648,7 +1743,8 @@
        "t": "지금의 돈벌이를 지키느라",
        "red": false
       }
-     ]
+     ],
+     "center": false
     },
     {
      "from": 204,
@@ -1662,7 +1758,8 @@
        "t": "했다는 겁니다",
        "red": false
       }
-     ]
+     ],
+     "center": false
     },
     {
      "from": 247,
@@ -1672,7 +1769,8 @@
        "t": "오늘의 1등이 내일도",
        "red": false
       }
-     ]
+     ],
+     "center": false
     },
     {
      "from": 307,
@@ -1686,7 +1784,8 @@
        "t": "보장은 없습니다",
        "red": true
       }
-     ]
+     ],
+     "center": true
     },
     {
      "from": 374,
@@ -1696,7 +1795,8 @@
        "t": "영상이 도움이 되셨다면",
        "red": false
       }
-     ]
+     ],
+     "center": false
     },
     {
      "from": 420,
@@ -1710,7 +1810,8 @@
        "t": " 부탁드립니다",
        "red": false
       }
-     ]
+     ],
+     "center": false
     }
    ],
    "graphics": [

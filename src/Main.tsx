@@ -16,7 +16,7 @@ import { C, FONT, loadFonts, outlined } from "./theme";
 import timeline from "./timeline.json";
 
 type Seg = { t: string; red: boolean };
-type Caption = { from: number; to: number; segs: Seg[] };
+type Caption = { from: number; to: number; segs: Seg[]; center: boolean };
 type Bg = { image: string; from: number; to: number; kind: string; aspect: number };
 type SceneData = {
   id: string;
@@ -34,7 +34,8 @@ const FADE = 14;
 
 // Graphics that take over the centre of the screen push the caption to the bottom;
 // graphics that already spell out the line (stat, quote, title, rank) hide it.
-const HIDE_CAPTION = new Set(["stat", "quote", "title", "rank"]);
+// Captions sit at the bottom by default. Emphasis lines jump to the centre when the
+// centre is free; they are hidden only while a photo + stat box fills the lower half.
 const BLUR_BG = new Set(["photo", "quote", "title", "rank", "donut", "bars", "timeline", "recap"]);
 
 const active = (gs: Graphic[], f: number) => gs.filter((g) => f >= g.from && f < g.to);
@@ -87,23 +88,23 @@ const Background: React.FC<{ bgs: Bg[]; blur: number; dim: number }> = ({ bgs, b
   );
 };
 
-const Captions: React.FC<{ caps: Caption[]; mode: "center" | "bottom" | "hidden" }> = ({ caps, mode }) => {
+const Captions: React.FC<{ caps: Caption[]; mode: "free" | "busy" | "hidden" }> = ({ caps, mode }) => {
   const frame = useCurrentFrame();
   const { fps } = useVideoConfig();
   const cap = caps.find((c) => frame >= c.from && frame < c.to);
   if (!cap || mode === "hidden") return null;
-  const s = spring({ frame: frame - cap.from, fps, config: { damping: 16, stiffness: 300 } });
-  const bottom = mode === "bottom";
+  const bottom = !(cap.center && mode === "free");
+  const s = bottom ? 1 : spring({ frame: frame - cap.from, fps, config: { damping: 16, stiffness: 300 } });
   return (
     <div
       style={{
         position: "absolute",
         left: 0,
         right: 0,
-        top: bottom ? 965 : 505,
+        top: bottom ? 972 : 505,
         transform: `translateY(-50%) scale(${0.94 + 0.06 * s})`,
         textAlign: "center",
-        fontSize: bottom ? 66 : 92,
+        fontSize: bottom ? 60 : 92,
         fontWeight: 900,
         letterSpacing: -1,
         whiteSpace: "nowrap",
@@ -206,9 +207,10 @@ const Scene: React.FC<{ sc: SceneData }> = ({ sc }) => {
   const statDim = level(new Set(["stat", "subscribe"]));
   const dim = Math.max(blur * 0.5, statDim * 0.35);
 
-  let mode: "center" | "bottom" | "hidden" = "center";
-  if (now.some((g) => HIDE_CAPTION.has(g.type))) mode = "hidden";
-  else if (now.length > 0) mode = "bottom";
+  const photoActive = now.some((g) => g.type === "photo");
+  let mode: "free" | "busy" | "hidden" = "free";
+  if (now.some((g) => g.type === "stat") && photoActive) mode = "hidden";
+  else if (now.length > 0) mode = "busy";
 
   const photo = now.find((g) => g.type === "photo");
   const bg = sc.backgrounds.find((b) => frame >= b.from && frame < b.to) ?? sc.backgrounds[sc.backgrounds.length - 1];
