@@ -1,311 +1,298 @@
 import React from "react";
-import { Img, interpolate, spring, staticFile, useCurrentFrame, useVideoConfig } from "remotion";
-import { C, outlined } from "./theme";
+import { AbsoluteFill, Img, interpolate, OffthreadVideo, spring, staticFile, useCurrentFrame, useVideoConfig } from "remotion";
+import { C, colorOf, outlined, parseMarkup } from "./theme";
 
-export type Graphic = {
-  type: string;
+export type Visual = {
+  type: "bg" | "card" | "board" | "rank";
   from: number;
   to: number;
-  [k: string]: any;
+  image?: string;
+  kind?: string;
+  aspect?: number;
+  current?: number;
+  rank?: string;
+  name?: string;
+};
+export type TextItem = {
+  type: "callout" | "quote" | "num";
+  from: number;
+  to: number;
+  text?: string;
+  who?: string;
+  label?: string;
+  value?: string;
+  color?: string;
+  tag?: string;
+};
+export type Board = {
+  title: string;
+  note: string;
+  finalImage: string;
+  ranks: { rank: string; name: string; result: string; image: string }[];
 };
 
-const img = (id: string) => staticFile(`images/${id}.jpg`);
+const clamp = { extrapolateLeft: "clamp", extrapolateRight: "clamp" } as const;
+const imgSrc = (id: string) => staticFile(`images/${id}.jpg`);
 
-// Pop-in spring plus a short fade-out at the end of the graphic's window.
-const useEnter = (g: Graphic, delay = 0) => {
+// ---------- visuals ----------
+
+// Full-bleed photo or video with a slow push-in. Portrait photos sit on a blurred copy of themselves.
+export const Media: React.FC<{ v: Visual; zoom?: [number, number]; filter?: string }> = ({ v, zoom = [1.02, 1.1], filter }) => {
+  const frame = useCurrentFrame();
+  const len = Math.max(1, v.to - v.from);
+  const z = interpolate(frame - v.from, [0, len], zoom, clamp);
+  const style: React.CSSProperties = { width: "100%", height: "100%", objectFit: "cover", transform: `scale(${z})` };
+  if (v.kind === "video") {
+    return (
+      <AbsoluteFill style={{ filter }}>
+        <OffthreadVideo src={staticFile(`videos/${v.image}.mp4`)} muted style={style} />
+      </AbsoluteFill>
+    );
+  }
+  const src = imgSrc(v.image!);
+  if ((v.aspect ?? 1.6) < 1.2) {
+    return (
+      <AbsoluteFill style={{ filter }}>
+        <Img src={src} style={{ ...style, filter: "blur(36px) brightness(0.5)", transform: "scale(1.2)" }} />
+        <Img src={src} style={{ ...style, position: "absolute", objectFit: "contain" }} />
+      </AbsoluteFill>
+    );
+  }
+  return (
+    <AbsoluteFill style={{ filter }}>
+      <Img src={src} style={style} />
+    </AbsoluteFill>
+  );
+};
+
+// Photo card: white border + strip of sky-blue tape, the same photo blurred behind it.
+export const PhotoCard: React.FC<{ v: Visual }> = ({ v }) => {
   const frame = useCurrentFrame();
   const { fps } = useVideoConfig();
-  const local = frame - g.from - delay;
-  const s = spring({ frame: local, fps, config: { damping: 13, stiffness: 170, mass: 0.8 } });
-  const out = interpolate(frame, [g.to - 8, g.to], [1, 0], { extrapolateLeft: "clamp", extrapolateRight: "clamp" });
-  const fadeIn = interpolate(local, [0, 5], [0, 1], { extrapolateLeft: "clamp", extrapolateRight: "clamp" });
-  return { s, opacity: Math.min(out, fadeIn), local, frame };
+  const s = spring({ frame: frame - v.from, fps, config: { damping: 15, stiffness: 160 } });
+  const fade = interpolate(frame - v.from, [0, 6], [0, 1], clamp);
+  return (
+    <AbsoluteFill>
+      <AbsoluteFill style={{ transform: "scale(1.15)" }}>
+        <Img src={imgSrc(v.image!)} style={{ width: "100%", height: "100%", objectFit: "cover", filter: "blur(22px) brightness(0.5)" }} />
+      </AbsoluteFill>
+      <div
+        style={{
+          position: "absolute",
+          left: "50%",
+          top: 360,
+          opacity: fade,
+          transform: `translate(-50%, -50%) rotate(-1.2deg) scale(${0.9 + 0.1 * s})`,
+        }}
+      >
+        <div style={{ background: "#fff", padding: 12, boxShadow: "0 22px 50px rgba(0,0,0,0.6)" }}>
+          <Img src={imgSrc(v.image!)} style={{ display: "block", maxWidth: 960, maxHeight: 520, minWidth: 560 }} />
+        </div>
+        <div
+          style={{
+            position: "absolute",
+            top: -20,
+            left: "50%",
+            width: 190,
+            height: 42,
+            background: C.cyan,
+            opacity: 0.88,
+            transform: "translateX(-50%) rotate(1.2deg)",
+          }}
+        />
+      </div>
+    </AbsoluteFill>
+  );
 };
 
-const center: React.CSSProperties = {
-  position: "absolute",
-  left: "50%",
-  top: "50%",
+// Rank title: representative photo, big yellow "N위" and the sky-blue name settling in.
+export const RankTitle: React.FC<{ v: Visual }> = ({ v }) => {
+  const frame = useCurrentFrame();
+  const { fps } = useVideoConfig();
+  const local = frame - v.from;
+  const s1 = spring({ frame: local, fps, config: { damping: 12, stiffness: 180 } });
+  const s2 = spring({ frame: local - 7, fps, config: { damping: 14, stiffness: 160 } });
+  return (
+    <AbsoluteFill>
+      <Media v={v} zoom={[1.0, 1.08]} filter="brightness(0.85)" />
+      <div style={{ position: "absolute", left: 0, right: 0, top: 300, textAlign: "center" }}>
+        <div style={{ color: C.yellow, fontSize: 300, fontWeight: 900, lineHeight: 1, ...outlined(20), transform: `scale(${1.5 - 0.5 * s1})`, opacity: s1 }}>
+          {v.rank}
+        </div>
+        <div style={{ color: C.cyan, fontSize: 140, fontWeight: 900, marginTop: 10, ...outlined(16), transform: `translateY(${(1 - s2) * 50}px)`, opacity: s2 }}>
+          {v.name}
+        </div>
+      </div>
+    </AbsoluteFill>
+  );
 };
 
-// White-bordered photo with a strip of cyan tape, as in the reference video.
-export const PhotoCard: React.FC<{ g: Graphic; maxW?: number; maxH?: number; top?: number; rotate?: number; image?: string }> = ({
-  g,
-  maxW = 1060,
-  maxH = 560,
-  top = 455,
-  rotate = -1.6,
-  image,
-}) => {
-  const { s, opacity, local } = useEnter(g);
-  const drift = 1 + Math.max(0, local) * 0.0004;
+// Ranking board: a column per rank; finished ranks keep their result, the next one gets a yellow underline.
+export const RankBoard: React.FC<{ v: Visual; board: Board }> = ({ v, board }) => {
+  const frame = useCurrentFrame();
+  const { fps } = useVideoConfig();
+  const local = frame - v.from;
+  const cur = v.current ?? 0;
+  const bgImage = cur < board.ranks.length ? board.ranks[cur].image : board.finalImage;
+  const tileW = 330;
+  const gap = 46;
+  const startX = (1920 - (board.ranks.length * tileW + (board.ranks.length - 1) * gap)) / 2;
+  const prev = Math.max(0, cur - 1);
+  const ux = interpolate(local, [10, 26], [prev, Math.min(cur, board.ranks.length - 1)], clamp);
+  const showLine = cur < board.ranks.length;
+  return (
+    <AbsoluteFill>
+      <AbsoluteFill style={{ transform: `scale(${interpolate(local, [0, 200], [1.04, 1.1], clamp)})` }}>
+        <Img src={imgSrc(bgImage)} style={{ width: "100%", height: "100%", objectFit: "cover", filter: "brightness(0.45)" }} />
+      </AbsoluteFill>
+      <div style={{ position: "absolute", left: 70, top: 64, display: "flex", alignItems: "center", gap: 18, opacity: interpolate(local, [0, 8], [0, 1], clamp) }}>
+        <div style={{ width: 9, height: 56, background: C.cyan, borderRadius: 3 }} />
+        <div style={{ color: C.white, fontSize: 52, fontWeight: 900, ...outlined(8) }}>{board.title}</div>
+      </div>
+      {board.ranks.map((r, i) => {
+        const s = spring({ frame: local - 3 - i * 4, fps, config: { damping: 14, stiffness: 170 } });
+        const done = i < cur;
+        return (
+          <div
+            key={r.rank}
+            style={{
+              position: "absolute",
+              left: startX + i * (tileW + gap),
+              top: 250,
+              width: tileW,
+              height: 470,
+              borderRadius: 18,
+              background: "rgba(20, 30, 44, 0.9)",
+              border: "2px solid rgba(255,255,255,0.12)",
+              boxShadow: "0 16px 40px rgba(0,0,0,0.5)",
+              textAlign: "center",
+              opacity: s,
+              transform: `translateY(${(1 - s) * 60}px)`,
+            }}
+          >
+            <div style={{ color: C.cyan, fontSize: 62, fontWeight: 900, marginTop: 28 }}>{r.rank}</div>
+            {done ? (
+              <>
+                <div style={{ color: C.white, fontSize: 58, fontWeight: 900, marginTop: 70 }}>{r.name}</div>
+                <div style={{ color: C.red, fontSize: 42, fontWeight: 900, marginTop: 26 }}>{r.result}</div>
+              </>
+            ) : (
+              <>
+                <div style={{ color: C.cyan, fontSize: 220, fontWeight: 900, lineHeight: 1.05, marginTop: 6 }}>?</div>
+                <div style={{ color: "#9aa4b2", fontSize: 40, fontWeight: 800 }}>???</div>
+              </>
+            )}
+          </div>
+        );
+      })}
+      {showLine && (
+        <div style={{ position: "absolute", top: 738, left: startX + ux * (tileW + gap) + 30, width: tileW - 60, height: 10, borderRadius: 5, background: C.yellow, opacity: interpolate(local, [8, 14], [0, 1], clamp) }} />
+      )}
+      <div style={{ position: "absolute", left: 0, right: 0, top: 800, textAlign: "center", color: "#e4e7ec", fontSize: 30, fontWeight: 700, ...outlined(5) }}>{board.note}</div>
+    </AbsoluteFill>
+  );
+};
+
+// ---------- text overlays (one at a time) ----------
+
+const useTextIn = (tx: TextItem) => {
+  const frame = useCurrentFrame();
+  const local = frame - tx.from;
+  const fadeIn = interpolate(local, [0, 5], [0, 1], clamp);
+  const fadeOut = interpolate(frame, [tx.to - 5, tx.to], [1, 0], clamp);
+  return { o: Math.min(fadeIn, fadeOut), s: interpolate(local, [0, 6], [0.92, 1], clamp) };
+};
+
+const Rich: React.FC<{ text: string; base: string }> = ({ text, base }) => (
+  <>
+    {parseMarkup(text).map((sg, i) => (
+      <span key={i} style={{ color: colorOf(sg.c, base) }}>
+        {sg.t}
+      </span>
+    ))}
+  </>
+);
+
+// Centre callout (판정·요약) or a quote in big quotation marks.
+export const Callout: React.FC<{ tx: TextItem; low: boolean }> = ({ tx, low }) => {
+  const { o, s } = useTextIn(tx);
+  const isQuote = tx.type === "quote";
+  const base = isQuote && tx.who === "guest" ? C.cyan : C.white;
+  const allRed = /^\[r:[^\]]+\]$/.test(tx.text ?? "");
+  return (
+    <div
+      style={{
+        position: "absolute",
+        left: 40,
+        right: 40,
+        top: low ? 760 : 440,
+        transform: `translateY(-50%) scale(${s})`,
+        opacity: o,
+        textAlign: "center",
+        fontSize: allRed ? 104 : isQuote ? 84 : 90,
+        fontWeight: 900,
+        lineHeight: 1.22,
+        letterSpacing: -1,
+        whiteSpace: "pre-line",
+        ...outlined(allRed ? 16 : 14),
+      }}
+    >
+      {isQuote && <span style={{ color: base }}>"</span>}
+      <Rich text={tx.text ?? ""} base={base} />
+      {isQuote && <span style={{ color: base }}>"</span>}
+    </div>
+  );
+};
+
+// Number card: dark translucent box, small grey label, big yellow (peak) or red (loss) value, optional red tag.
+export const NumCard: React.FC<{ tx: TextItem; low: boolean }> = ({ tx, low }) => {
+  const { o, s } = useTextIn(tx);
+  const color = tx.color === "y" ? C.yellow : tx.color === "b" ? C.cyan : C.red;
   return (
     <div
       style={{
         position: "absolute",
         left: "50%",
-        top,
-        opacity,
-        transform: `translate(-50%, -50%) rotate(${rotate}deg) scale(${(0.82 + 0.18 * s) * drift})`,
-      }}
-    >
-      <div style={{ background: "#fff", padding: 14, boxShadow: "0 24px 60px rgba(0,0,0,0.65)" }}>
-        <Img src={img(image ?? g.image)} style={{ display: "block", maxWidth: maxW, maxHeight: maxH }} />
-      </div>
-      <div
-        style={{
-          position: "absolute",
-          top: -24,
-          left: "50%",
-          width: 210,
-          height: 48,
-          background: C.cyan,
-          opacity: 0.88,
-          transform: "translateX(-50%) rotate(1.5deg)",
-          boxShadow: "0 2px 6px rgba(0,0,0,0.25)",
-        }}
-      />
-    </div>
-  );
-};
-
-const countUp = (value: string, progress: number) => {
-  const m = value.match(/^([\d,]+)(.*)$/s);
-  if (!m) return value;
-  const n = parseInt(m[1].replace(/,/g, ""), 10);
-  const cur = Math.round(n * progress);
-  const withCommas = m[1].includes(",") ? cur.toLocaleString("en-US") : String(cur);
-  return withCommas + m[2];
-};
-
-// Dark rounded panel: small label + big red value (reference: "중국집 단무지 값 / 500원 따로").
-export const StatBox: React.FC<{ g: Graphic; low: boolean }> = ({ g, low }) => {
-  const { s, opacity, local } = useEnter(g);
-  const p = interpolate(local, [0, 22], [0, 1], { extrapolateLeft: "clamp", extrapolateRight: "clamp", easing: (t) => 1 - Math.pow(1 - t, 3) });
-  return (
-    <div
-      style={{
-        ...center,
-        top: low ? 862 : 540,
-        opacity,
-        transform: `translate(-50%, -50%) scale(${0.85 + 0.15 * s})`,
+        top: low ? 790 : 420,
+        transform: `translate(-50%, -50%) scale(${s})`,
+        opacity: o,
         background: C.panel,
-        borderRadius: 16,
-        padding: "26px 80px 30px",
+        borderRadius: 12,
+        padding: "18px 54px 22px",
         textAlign: "center",
-        boxShadow: "0 18px 50px rgba(0,0,0,0.55)",
-        border: "1px solid rgba(255,255,255,0.07)",
         whiteSpace: "nowrap",
+        boxShadow: "0 14px 36px rgba(0,0,0,0.5)",
       }}
     >
-      <div style={{ color: "#e9e9ec", fontSize: 38, fontWeight: 700, marginBottom: 2 }}>{g.label}</div>
-      <div style={{ color: C.red, fontSize: 132, fontWeight: 900, lineHeight: 1.05, letterSpacing: -2 }}>{countUp(g.value, p)}</div>
-    </div>
-  );
-};
-
-export const QuoteBox: React.FC<{ g: Graphic }> = ({ g }) => {
-  const { s, opacity } = useEnter(g);
-  return (
-    <div
-      style={{
-        ...center,
-        opacity,
-        transform: `translate(-50%, -50%) scale(${0.88 + 0.12 * s})`,
-        background: C.panel,
-        borderRadius: 18,
-        padding: "40px 90px 46px",
-        textAlign: "center",
-        boxShadow: "0 18px 50px rgba(0,0,0,0.55)",
-        whiteSpace: "pre",
-      }}
-    >
-      <div style={{ color: "#d4d4d8", fontSize: 36, fontWeight: 700, marginBottom: 16 }}>{g.label}</div>
-      <div style={{ color: C.white, fontSize: 96, fontWeight: 900, lineHeight: 1.18 }}>{g.value}</div>
-    </div>
-  );
-};
-
-export const TitleCard: React.FC<{ g: Graphic }> = ({ g }) => {
-  const { s, opacity } = useEnter(g);
-  const { s: s2 } = useEnter(g, 6);
-  return (
-    <div style={{ ...center, opacity, transform: "translate(-50%, -50%)", textAlign: "center", whiteSpace: "nowrap" }}>
-      <div style={{ color: C.white, fontSize: 70, fontWeight: 900, ...outlined(12), transform: `translateY(${(1 - s) * 30}px)` }}>{g.kicker}</div>
-      <div style={{ color: C.cyan, fontSize: 250, fontWeight: 900, lineHeight: 1, letterSpacing: -4, ...outlined(18), transform: `scale(${0.7 + 0.3 * s2})` }}>
-        {g.value}
-      </div>
-    </div>
-  );
-};
-
-export const RankCard: React.FC<{ g: Graphic }> = ({ g }) => {
-  const { s, opacity, local } = useEnter(g);
-  const wipe = interpolate(local, [4, 18], [0, 1], { extrapolateLeft: "clamp", extrapolateRight: "clamp" });
-  return (
-    <div style={{ ...center, opacity, transform: "translate(-50%, -50%)", textAlign: "center", whiteSpace: "nowrap" }}>
-      <div style={{ color: C.cyan, fontSize: 260, fontWeight: 900, lineHeight: 1, ...outlined(18), transform: `scale(${0.6 + 0.4 * s})` }}>{g.rank}</div>
-      <div style={{ height: 8, width: 520 * wipe, background: C.white, margin: "18px auto 22px", borderRadius: 4 }} />
-      <div style={{ color: C.white, fontSize: 140, fontWeight: 900, lineHeight: 1, ...outlined(14), opacity: wipe }}>{g.name}</div>
-    </div>
-  );
-};
-
-export const Donut: React.FC<{ g: Graphic }> = ({ g }) => {
-  const { s, opacity, local } = useEnter(g);
-  const p = interpolate(local, [4, 34], [0, g.value / 100], { extrapolateLeft: "clamp", extrapolateRight: "clamp", easing: (t) => 1 - Math.pow(1 - t, 3) });
-  const r = 170;
-  const circ = 2 * Math.PI * r;
-  return (
-    <div style={{ ...center, top: 445, opacity, transform: `translate(-50%, -50%) scale(${0.85 + 0.15 * s})`, textAlign: "center" }}>
-      <div style={{ color: C.white, fontSize: 48, fontWeight: 800, marginBottom: 16, ...outlined(8), whiteSpace: "nowrap" }}>{g.label}</div>
-      <div style={{ position: "relative", width: 420, height: 420, margin: "0 auto" }}>
-        <svg width={420} height={420} style={{ transform: "rotate(-90deg)" }}>
-          <circle cx={210} cy={210} r={r} fill="rgba(15,15,18,0.75)" stroke="rgba(255,255,255,0.18)" strokeWidth={48} />
-          <circle cx={210} cy={210} r={r} fill="none" stroke={C.red} strokeWidth={48} strokeDasharray={`${circ * p} ${circ}`} />
-        </svg>
-        <div style={{ position: "absolute", inset: 0, display: "flex", alignItems: "center", justifyContent: "center", color: C.white, fontSize: 120, fontWeight: 900 }}>
-          {Math.round(p * 100)}%
+      <div style={{ color: "#e3e3e6", fontSize: 30, fontWeight: 700 }}>{tx.label}</div>
+      <div style={{ color, fontSize: 118, fontWeight: 900, lineHeight: 1.08, letterSpacing: -2 }}>{tx.value}</div>
+      {tx.tag && (
+        <div style={{ display: "inline-block", marginTop: 8, background: C.red, color: "#fff", fontSize: 28, fontWeight: 800, padding: "4px 16px", borderRadius: 5 }}>
+          {tx.tag}
         </div>
-      </div>
-      <div style={{ color: C.cyan, fontSize: 70, fontWeight: 900, marginTop: 14, ...outlined(10) }}>{g.caption}</div>
+      )}
     </div>
   );
 };
 
-export const Bars: React.FC<{ g: Graphic }> = ({ g }) => {
-  const { s, opacity, local } = useEnter(g);
-  const bars: { k: string; v: number }[] = g.bars;
-  const max = Math.max(...bars.map((b) => b.v));
-  return (
-    <div
-      style={{
-        ...center,
-        top: 450,
-        opacity,
-        transform: `translate(-50%, -50%) scale(${0.9 + 0.1 * s})`,
-        background: C.panel,
-        borderRadius: 18,
-        padding: "34px 70px 30px",
-        width: 1120,
-        boxShadow: "0 18px 50px rgba(0,0,0,0.55)",
-      }}
-    >
-      <div style={{ color: "#e9e9ec", fontSize: 40, fontWeight: 800, textAlign: "center", marginBottom: 26 }}>{g.label}</div>
-      <div style={{ display: "flex", alignItems: "flex-end", justifyContent: "space-around", height: 380 }}>
-        {bars.map((b, i) => {
-          const p = interpolate(local, [6 + i * 8, 26 + i * 8], [0, 1], { extrapolateLeft: "clamp", extrapolateRight: "clamp", easing: (t) => 1 - Math.pow(1 - t, 3) });
-          const last = i === bars.length - 1;
-          return (
-            <div key={b.k} style={{ display: "flex", flexDirection: "column", alignItems: "center", width: 170 }}>
-              <div style={{ color: last ? C.red : C.white, fontSize: 52, fontWeight: 900, opacity: p }}>{Math.round(b.v * p)}%</div>
-              <div style={{ width: 130, height: (300 * b.v * p) / max, background: last ? C.red : C.cyan, borderRadius: "10px 10px 0 0" }} />
-            </div>
-          );
-        })}
-      </div>
-      <div style={{ display: "flex", justifyContent: "space-around", borderTop: "3px solid rgba(255,255,255,0.35)", paddingTop: 12 }}>
-        {bars.map((b) => (
-          <div key={b.k} style={{ width: 170, textAlign: "center", color: "#d4d4d8", fontSize: 40, fontWeight: 800 }}>
-            {b.k}
-          </div>
-        ))}
-      </div>
-    </div>
-  );
-};
-
-export const Timeline: React.FC<{ g: Graphic }> = ({ g }) => {
-  const { opacity, local } = useEnter(g);
-  const line = interpolate(local, [6, 30], [0, 1], { extrapolateLeft: "clamp", extrapolateRight: "clamp" });
-  const { s: pop } = useEnter(g, 26);
-  const node = (year: string, label: string, color: string, show: number) => (
-    <div style={{ textAlign: "center", opacity: show, width: 360 }}>
-      <div style={{ color: C.white, fontSize: 110, fontWeight: 900, ...outlined(12) }}>{year}</div>
-      <div style={{ color, fontSize: 58, fontWeight: 900, ...outlined(9) }}>{label}</div>
-    </div>
-  );
-  return (
-    <div style={{ ...center, top: 430, opacity, transform: "translate(-50%, -50%)", width: 1400 }}>
-      <div style={{ textAlign: "center", color: C.red, fontSize: 170, fontWeight: 900, ...outlined(14), transform: `scale(${pop})`, height: 200 }}>
-        {g.value}
-      </div>
-      <div style={{ position: "relative", height: 40, margin: "10px 180px" }}>
-        <div style={{ position: "absolute", top: 14, left: 0, height: 12, width: `${line * 100}%`, background: C.white, borderRadius: 6 }} />
-        <div style={{ position: "absolute", top: 0, left: -20, width: 40, height: 40, borderRadius: 20, background: C.cyan, border: "6px solid #fff" }} />
-        <div style={{ position: "absolute", top: 0, right: -20, width: 40, height: 40, borderRadius: 20, background: C.red, border: "6px solid #fff", opacity: line >= 1 ? 1 : 0 }} />
-      </div>
-      <div style={{ display: "flex", justifyContent: "space-between", margin: "0 0" }}>
-        {node(g.fromYear, g.fromLabel, C.cyan, 1)}
-        {node(g.toYear, g.toLabel, C.red, line >= 1 ? 1 : 0)}
-      </div>
-    </div>
-  );
-};
-
-export const Subscribe: React.FC<{ g: Graphic }> = ({ g }) => {
-  const { s, opacity, local } = useEnter(g);
-  const clicked = local > 22;
-  const press = interpolate(local, [18, 22, 26], [1, 0.9, 1], { extrapolateLeft: "clamp", extrapolateRight: "clamp" });
-  const handX = interpolate(local, [4, 18], [260, 70], { extrapolateLeft: "clamp", extrapolateRight: "clamp" });
-  const handY = interpolate(local, [4, 18], [200, 40], { extrapolateLeft: "clamp", extrapolateRight: "clamp" });
-  return (
-    <div style={{ ...center, top: 560, opacity, transform: `translate(-50%, -50%) scale(${(0.8 + 0.2 * s) * press})` }}>
-      <div
-        style={{
-          display: "flex",
-          alignItems: "center",
-          gap: 22,
-          background: clicked ? "#3f3f46" : C.red,
-          color: C.white,
-          fontSize: 72,
-          fontWeight: 900,
-          padding: "22px 64px",
-          borderRadius: 999,
-          boxShadow: "0 16px 40px rgba(0,0,0,0.5)",
-          whiteSpace: "nowrap",
-        }}
-      >
-        <svg width={64} height={64} viewBox="0 0 24 24" fill="#fff">
-          <path d="M12 22a2.5 2.5 0 0 0 2.45-2h-4.9A2.5 2.5 0 0 0 12 22Zm7-6V11a7 7 0 0 0-5.5-6.84V3a1.5 1.5 0 0 0-3 0v1.16A7 7 0 0 0 5 11v5l-2 2v1h18v-1Z" />
-        </svg>
-        {clicked ? "구독중" : "구독"}
-      </div>
-      <svg width={90} height={90} viewBox="0 0 24 24" style={{ position: "absolute", left: handX + 120, top: handY + 30 }}>
-        <path
-          d="M9 11V4.5a1.5 1.5 0 0 1 3 0V10h.5V8.5a1.5 1.5 0 0 1 3 0V10h.5V9.5a1.5 1.5 0 0 1 3 0V15a7 7 0 0 1-7 7h-.6a6 6 0 0 1-4.6-2.2L3.3 15.4a1.5 1.5 0 0 1 2.2-2L9 16Z"
-          fill="#fff"
-          stroke="#111"
-          strokeWidth={1}
-        />
-      </svg>
-    </div>
-  );
-};
-
-export const Recap: React.FC<{ g: Graphic }> = ({ g }) => {
-  const { opacity, local } = useEnter(g);
-  const { fps } = useVideoConfig();
-  const items: { rank: string; name: string; image: string }[] = g.items;
-  return (
-    <div style={{ ...center, top: 440, opacity, transform: "translate(-50%, -50%)", display: "flex", gap: 60 }}>
-      {items.map((it, i) => {
-        const s = spring({ frame: local - i * 7, fps, config: { damping: 13, stiffness: 160 } });
-        const x = spring({ frame: local - 30 - i * 10, fps, config: { damping: 10, stiffness: 220 } });
-        return (
-          <div key={it.name} style={{ textAlign: "center", transform: `translateY(${(1 - s) * 80}px) rotate(${[-2.5, 1.5, -1][i]}deg)`, opacity: s }}>
-            <div style={{ color: C.cyan, fontSize: 56, fontWeight: 900, ...outlined(9) }}>
-              {it.rank} <span style={{ color: C.white }}>{it.name}</span>
-            </div>
-            <div style={{ position: "relative", background: "#fff", padding: 12, marginTop: 14, boxShadow: "0 20px 50px rgba(0,0,0,0.6)" }}>
-              <Img src={img(it.image)} style={{ display: "block", width: 460, height: 320, objectFit: "cover", filter: `grayscale(${x})` }} />
-              <svg width={300} height={300} viewBox="0 0 100 100" style={{ position: "absolute", left: 92, top: 22, opacity: x, transform: `scale(${1.6 - 0.6 * x})` }}>
-                <path d="M15 15 L85 85 M85 15 L15 85" stroke={C.red} strokeWidth={12} strokeLinecap="round" />
-              </svg>
-            </div>
-          </div>
-        );
-      })}
-    </div>
-  );
-};
+// Bottom one-line subtitle.
+export const BottomSub: React.FC<{ text: string }> = ({ text }) => (
+  <div
+    style={{
+      position: "absolute",
+      left: 0,
+      right: 0,
+      top: 960,
+      transform: "translateY(-50%)",
+      textAlign: "center",
+      color: C.white,
+      fontSize: 56,
+      fontWeight: 900,
+      letterSpacing: -0.5,
+      whiteSpace: "nowrap",
+      ...outlined(10),
+    }}
+  >
+    {text}
+  </div>
+);

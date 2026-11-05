@@ -16,7 +16,7 @@ http://creativecommons.org/licenses/by/4.0/
 사진: Blockbuster 6178.jpg / Chris Light / CC BY-SA 4.0 / https://commons.wikimedia.org/wiki/File:Blockbuster_6178.jpg
 사진: Anchorage Blockbuster video store sign (41219885734).jpg / Jon Konrath from Oakland, USA / CC BY 2.0 / https://commons.wikimedia.org/wiki/File:Anchorage_Blockbuster_video_store_sign_(41219885734).jpg
 사진: Anchorage Blockbuster video store (41894010352).jpg / Jon Konrath from Oakland, USA / CC BY 2.0 / https://commons.wikimedia.org/wiki/File:Anchorage_Blockbuster_video_store_(41894010352).jpg
-사진: Blockbuster 6176.jpg / Chris Light / CC BY-SA 4.0 / https://commons.wikimedia.org/wiki/File:Blockbuster_6176.jpg
+사진: Blockbuster Video store Rockhampton.jpg / RegionalQueenslander / CC BY-SA 4.0 / https://commons.wikimedia.org/wiki/File:Blockbuster_Video_store_Rockhampton.jpg
 사진: Dallas Skyline in the evening.jpg / Matthew T Rader / CC BY-SA 4.0 / https://commons.wikimedia.org/wiki/File:Dallas_Skyline_in_the_evening.jpg
 사진: Dallas Skyline at Dusk.jpg / Matthew T Rader / CC BY-SA 4.0 / https://commons.wikimedia.org/wiki/File:Dallas_Skyline_at_Dusk.jpg
 사진: Abandoned Lehtisaari shopping centre in December 2024 picture 4.jpg / JIP / CC BY-SA 4.0 / https://commons.wikimedia.org/wiki/File:Abandoned_Lehtisaari_shopping_centre_in_December_2024_picture_4.jpg
@@ -24,7 +24,6 @@ http://creativecommons.org/licenses/by/4.0/
 사진: Original iPhone - iPhone 3G - iPhone 4 - Flickr - Yutaka Tsutano.jpg / Yutaka Tsutano from Lincoln, United States / CC BY 2.0 / https://commons.wikimedia.org/wiki/File:Original_iPhone_-_iPhone_3G_-_iPhone_4_-_Flickr_-_Yutaka_Tsutano.jpg
 사진: 2014-365-233 The Basic Brownie Camera (14809795240).jpg / cogdogblog / CC0 / https://commons.wikimedia.org/wiki/File:2014-365-233_The_Basic_Brownie_Camera_(14809795240).jpg
 사진: Used 135 film cartridges.jpg / Petar Milošević / CC BY-SA 4.0 / https://commons.wikimedia.org/wiki/File:Used_135_film_cartridges.jpg
-사진: Kodak Ektar 100 135 film cartridge (01).jpg / El Grafo / CC BY-SA 4.0 / https://commons.wikimedia.org/wiki/File:Kodak_Ektar_100_135_film_cartridge_(01).jpg
 사진: 2015 04 08 012 Kodak Instamatic 50.jpg / Friedrich Haag / CC BY-SA 4.0 / https://commons.wikimedia.org/wiki/File:2015_04_08_012_Kodak_Instamatic_50.jpg
 사진: Kodak Sasson BL.jpg / Bertrand Labévue / CC BY-SA 4.0 / https://commons.wikimedia.org/wiki/File:Kodak_Sasson_BL.jpg
 사진: Rochester July 7-8, 2025 by Pedro Terres 02 - Kodak Tower.jpg / Parzeus / CC BY 4.0 / https://commons.wikimedia.org/wiki/File:Rochester_July_7-8,_2025_by_Pedro_Terres_02_-_Kodak_Tower.jpg

@@ -2,12 +2,31 @@ import { continueRender, delayRender, staticFile } from "remotion";
 
 // Colours sampled from the reference video's captions and labels.
 export const C = {
-  cyan: "#45D4F2",
-  red: "#F23A3C",
+  cyan: "#3FC8F2",
+  red: "#F2403A",
+  yellow: "#FFD43B",
   white: "#FFFFFF",
-  panel: "rgba(24, 24, 27, 0.9)",
-  stroke: "#1b1b1f",
+  panel: "rgba(18, 18, 20, 0.84)",
+  stroke: "#141416",
 };
+
+// "[r:text]" red, "[y:text]" yellow, "[b:text]" sky blue — everything else plain.
+export type Seg = { t: string; c: string | null };
+export const parseMarkup = (s: string): Seg[] => {
+  const out: Seg[] = [];
+  const re = /\[([ryb]):([^\]]+)\]/g;
+  let last = 0;
+  let m: RegExpExecArray | null;
+  while ((m = re.exec(s))) {
+    if (m.index > last) out.push({ t: s.slice(last, m.index), c: null });
+    out.push({ t: m[2], c: m[1] });
+    last = m.index + m[0].length;
+  }
+  if (last < s.length) out.push({ t: s.slice(last), c: null });
+  return out;
+};
+export const colorOf = (c: string | null, base: string) =>
+  c === "r" ? C.red : c === "y" ? C.yellow : c === "b" ? C.cyan : base;
 
 export const FONT = "Pretendard";
 

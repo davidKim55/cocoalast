@@ -1,229 +1,76 @@
 import React from "react";
-import {
-  AbsoluteFill,
-  Audio,
-  Img,
-  interpolate,
-  OffthreadVideo,
-  Sequence,
-  spring,
-  staticFile,
-  useCurrentFrame,
-  useVideoConfig,
-} from "remotion";
-import { Bars, Donut, Graphic, PhotoCard, QuoteBox, RankCard, Recap, StatBox, Subscribe, TitleCard, Timeline } from "./Graphics";
+import { AbsoluteFill, Audio, interpolate, Sequence, staticFile, useCurrentFrame } from "remotion";
+import { Board, BottomSub, Callout, Media, NumCard, PhotoCard, RankBoard, RankTitle, TextItem, Visual } from "./Graphics";
 import { C, FONT, loadFonts, outlined } from "./theme";
 import timeline from "./timeline.json";
 
-type Seg = { t: string; red: boolean };
-type Caption = { from: number; to: number; segs: Seg[]; center: boolean };
-type Bg = { image: string; from: number; to: number; kind: string; aspect: number };
+type Caption = { from: number; to: number; text: string };
 type SceneData = {
   id: string;
   from: number;
   duration: number;
   audioOffset: number;
-  chapter: { rank: string; name: string } | null;
+  visuals: Visual[];
+  texts: TextItem[];
   captions: Caption[];
-  graphics: Graphic[];
-  backgrounds: Bg[];
 };
 
-const credits = timeline.credits as Record<string, { artist: string; license: string }>;
-const FADE = 14;
+const board = timeline.board as unknown as Board;
+const credits = timeline.credits as Record<string, { artist: string; license: string; kind?: string }>;
+const XFADE = 4;
 
-// Graphics that take over the centre of the screen push the caption to the bottom;
-// graphics that already spell out the line (stat, quote, title, rank) hide it.
-// Captions sit at the bottom by default. Emphasis lines jump to the centre when the
-// centre is free; they are hidden only while a photo + stat box fills the lower half.
-const BLUR_BG = new Set(["photo", "quote", "title", "rank", "donut", "bars", "timeline", "recap"]);
-
-const active = (gs: Graphic[], f: number) => gs.filter((g) => f >= g.from && f < g.to);
-
-const Background: React.FC<{ bgs: Bg[]; blur: number; dim: number }> = ({ bgs, blur, dim }) => {
+const VisualLayer: React.FC<{ v: Visual; first: boolean }> = ({ v, first }) => {
   const frame = useCurrentFrame();
-  return (
-    <AbsoluteFill style={{ filter: `blur(${blur * 16}px) brightness(${1 - dim}) contrast(1.06) saturate(0.92)`, transform: `scale(${1 + blur * 0.04})` }}>
-      {bgs.map((b, i) => {
-        const len = b.to - b.from + FADE;
-        const local = frame - b.from;
-        if (local < 0 || local > len) return null;
-        const opacity = i === 0 ? 1 : interpolate(local, [0, FADE], [0, 1], { extrapolateRight: "clamp" });
-        const zoom = interpolate(local, [0, len], [1.06, 1.16]);
-        const dir = i % 2 === 0 ? 1 : -1;
-        const pan = interpolate(local, [0, len], [-18 * dir, 18 * dir]);
-        if (b.kind === "video") {
-          return (
-            <AbsoluteFill key={i} style={{ opacity }}>
-              <Sequence from={b.from} layout="none">
-                <OffthreadVideo
-                  src={staticFile(`videos/${b.image}.mp4`)}
-                  muted
-                  style={{ width: "100%", height: "100%", objectFit: "cover", transform: `scale(${zoom * 0.95})` }}
-                />
-              </Sequence>
-            </AbsoluteFill>
-          );
-        }
-        const src = staticFile(`images/${b.image}.jpg`);
-        // Portrait / square photos: blurred fill behind, the whole photo on top.
-        if (b.aspect < 1.2) {
-          return (
-            <AbsoluteFill key={i} style={{ opacity }}>
-              <Img src={src} style={{ width: "100%", height: "100%", objectFit: "cover", filter: "blur(40px) brightness(0.55)", transform: "scale(1.2)" }} />
-              <Img
-                src={src}
-                style={{ position: "absolute", width: "100%", height: "100%", objectFit: "contain", transform: `scale(${zoom * 0.92}) translateX(${pan}px)` }}
-              />
-            </AbsoluteFill>
-          );
-        }
-        return (
-          <AbsoluteFill key={i} style={{ opacity }}>
-            <Img src={src} style={{ width: "100%", height: "100%", objectFit: "cover", transform: `scale(${zoom}) translateX(${pan}px)` }} />
-          </AbsoluteFill>
-        );
-      })}
-    </AbsoluteFill>
-  );
+  const opacity = first ? 1 : interpolate(frame - v.from, [0, XFADE], [0, 1], { extrapolateRight: "clamp" });
+  let body: React.ReactNode = null;
+  if (v.type === "bg") body = <Media v={v} />;
+  if (v.type === "card") body = <PhotoCard v={v} />;
+  if (v.type === "rank") body = <RankTitle v={v} />;
+  if (v.type === "board") body = <RankBoard v={v} board={board} />;
+  return <AbsoluteFill style={{ opacity }}>{body}</AbsoluteFill>;
 };
 
-const Captions: React.FC<{ caps: Caption[]; mode: "free" | "busy" | "hidden" }> = ({ caps, mode }) => {
-  const frame = useCurrentFrame();
-  const { fps } = useVideoConfig();
-  const cap = caps.find((c) => frame >= c.from && frame < c.to);
-  if (!cap || mode === "hidden") return null;
-  const bottom = !(cap.center && mode === "free");
-  const s = bottom ? 1 : spring({ frame: frame - cap.from, fps, config: { damping: 16, stiffness: 300 } });
+const ChapterLabel: React.FC<{ rank: string; name: string }> = ({ rank, name }) => (
+  <div style={{ position: "absolute", left: 44, top: 34, fontSize: 36, fontWeight: 900, ...outlined(7) }}>
+    <span style={{ color: C.cyan }}>{rank}</span>
+    <span style={{ color: C.white }}> {name}</span>
+  </div>
+);
+
+const Credit: React.FC<{ id?: string }> = ({ id }) => {
+  const c = id ? credits[id] : undefined;
+  if (!c || c.kind === "generated") return null;
   return (
-    <div
-      style={{
-        position: "absolute",
-        left: 0,
-        right: 0,
-        top: bottom ? 972 : 505,
-        transform: `translateY(-50%) scale(${0.94 + 0.06 * s})`,
-        textAlign: "center",
-        fontSize: bottom ? 60 : 92,
-        fontWeight: 900,
-        letterSpacing: -1,
-        whiteSpace: "nowrap",
-        ...outlined(bottom ? 12 : 15),
-      }}
-    >
-      {cap.segs.map((sg, i) => (
-        <span key={i} style={{ color: sg.red ? C.red : C.white }}>
-          {sg.t}
-        </span>
-      ))}
+    <div style={{ position: "absolute", left: 26, bottom: 14, fontSize: 18, fontWeight: 600, color: "rgba(255,255,255,0.72)", textShadow: "0 1px 3px rgba(0,0,0,0.9)" }}>
+      {c.kind === "video" ? "영상" : "사진"}: {c.artist} · {c.license} · Wikimedia Commons
     </div>
   );
-};
-
-const ChapterLabel: React.FC<{ chapter: SceneData["chapter"]; hidden: boolean }> = ({ chapter, hidden }) => {
-  if (!chapter) return null;
-  return (
-    <div
-      style={{
-        position: "absolute",
-        left: 60,
-        top: 48,
-        fontSize: 44,
-        fontWeight: 900,
-        opacity: hidden ? 0 : 1,
-        textShadow: "0 3px 8px rgba(0,0,0,0.7)",
-        WebkitTextStroke: "6px rgba(10,10,12,0.85)",
-        paintOrder: "stroke fill",
-      }}
-    >
-      <span style={{ color: C.cyan }}>{chapter.rank}</span>
-      <span style={{ color: C.white }}> {chapter.name}</span>
-    </div>
-  );
-};
-
-const Credit: React.FC<{ image: string | undefined }> = ({ image }) => {
-  const c = image ? credits[image] : undefined;
-  if (!c || (c as any).kind === "generated") return null;
-  return (
-    <div
-      style={{
-        position: "absolute",
-        left: 30,
-        bottom: 18,
-        fontSize: 21,
-        fontWeight: 600,
-        color: "rgba(255,255,255,0.78)",
-        textShadow: "0 1px 3px rgba(0,0,0,0.9)",
-      }}
-    >
-      {(c as any).kind === "video" ? "영상" : "사진"}: {c.artist} · {c.license} · Wikimedia Commons
-    </div>
-  );
-};
-
-const renderGraphic = (g: Graphic, all: Graphic[], key: number) => {
-  switch (g.type) {
-    case "photo":
-      return <PhotoCard key={key} g={g} />;
-    case "stat": {
-      const withPhoto = all.some((o) => o.type === "photo" && o.from <= g.from && o.to > g.from);
-      return <StatBox key={key} g={g} low={withPhoto} />;
-    }
-    case "quote":
-      return <QuoteBox key={key} g={g} />;
-    case "title":
-      return <TitleCard key={key} g={g} />;
-    case "rank":
-      return <RankCard key={key} g={g} />;
-    case "donut":
-      return <Donut key={key} g={g} />;
-    case "bars":
-      return <Bars key={key} g={g} />;
-    case "timeline":
-      return <Timeline key={key} g={g} />;
-    case "subscribe":
-      return <Subscribe key={key} g={g} />;
-    case "recap":
-      return <Recap key={key} g={g} />;
-    default:
-      return null;
-  }
 };
 
 const Scene: React.FC<{ sc: SceneData }> = ({ sc }) => {
   const frame = useCurrentFrame();
-  const now = active(sc.graphics, frame);
-
-  // Smoothly blend background blur/dim in and out around graphics.
-  const level = (types: Set<string>) =>
-    Math.max(
-      0,
-      ...sc.graphics
-        .filter((g) => types.has(g.type))
-        .map((g) => Math.min(interpolate(frame, [g.from - 2, g.from + 8], [0, 1], { extrapolateLeft: "clamp", extrapolateRight: "clamp" }), interpolate(frame, [g.to - 8, g.to], [1, 0], { extrapolateLeft: "clamp", extrapolateRight: "clamp" }))),
-    );
-  const blur = level(BLUR_BG);
-  const statDim = level(new Set(["stat", "subscribe"]));
-  const dim = Math.max(blur * 0.5, statDim * 0.35);
-
-  const photoActive = now.some((g) => g.type === "photo");
-  let mode: "free" | "busy" | "hidden" = "free";
-  if (now.some((g) => g.type === "stat") && photoActive) mode = "hidden";
-  else if (now.length > 0) mode = "busy";
-
-  const photo = now.find((g) => g.type === "photo");
-  const bg = sc.backgrounds.find((b) => frame >= b.from && frame < b.to) ?? sc.backgrounds[sc.backgrounds.length - 1];
-  const rankShowing = now.some((g) => g.type === "rank");
+  const vIdx = sc.visuals.findIndex((v) => frame >= v.from && frame < v.to);
+  const v = sc.visuals[vIdx === -1 ? sc.visuals.length - 1 : vIdx];
+  const tx = sc.texts.find((t) => frame >= t.from && frame < t.to);
+  const cap = sc.captions.find((c) => frame >= c.from && frame < c.to);
+  const fullScreen = v.type === "board" || v.type === "rank";
+  const low = v.type === "card";
+  const rankV = sc.visuals.find((x) => x.type === "rank");
+  const showLabel = rankV && frame >= rankV.to && v.type !== "board";
 
   return (
     <AbsoluteFill>
-      <Background bgs={sc.backgrounds} blur={blur} dim={dim} />
-      <AbsoluteFill style={{ background: "radial-gradient(ellipse at center, rgba(0,0,0,0) 45%, rgba(0,0,0,0.55) 100%)" }} />
-      {sc.graphics.map((g, i) => (frame >= g.from && frame < g.to ? renderGraphic(g, sc.graphics, i) : null))}
-      <Captions caps={sc.captions} mode={mode} />
-      <ChapterLabel chapter={sc.chapter} hidden={rankShowing} />
-      <Credit image={photo?.image ?? bg?.image} />
+      {sc.visuals.map((vv, i) =>
+        frame >= vv.from && frame < vv.to + XFADE ? (
+          <Sequence key={i} from={vv.from} durationInFrames={vv.to - vv.from + XFADE} layout="none">
+            <VisualLayer v={{ ...vv, from: 0, to: vv.to - vv.from }} first={i === 0} />
+          </Sequence>
+        ) : null,
+      )}
+      {!fullScreen && tx && (tx.type === "num" ? <NumCard tx={tx} low={low} /> : <Callout tx={tx} low={low} />)}
+      {!fullScreen && !tx && cap && <BottomSub text={cap.text} />}
+      {showLabel && <ChapterLabel rank={rankV!.rank!} name={rankV!.name!} />}
+      {v.type !== "board" && <Credit id={v.image} />}
       <Sequence from={sc.audioOffset}>
         <Audio src={staticFile(`audio/${sc.id}.mp3`)} />
       </Sequence>
@@ -231,42 +78,25 @@ const Scene: React.FC<{ sc: SceneData }> = ({ sc }) => {
   );
 };
 
-const Music: React.FC<{ track: string; len: number }> = ({ track, len }) => {
-  return (
-    <Audio
-      src={staticFile(`music/bgm_${track}.mp3`)}
-      loop
-      volume={(f) =>
-        0.16 *
-        Math.min(
-          interpolate(f, [0, 30], [0, 1], { extrapolateRight: "clamp" }),
-          interpolate(f, [len - 30, len], [1, 0], { extrapolateLeft: "clamp", extrapolateRight: "clamp" }),
-        )
-      }
-    />
-  );
-};
+const Music: React.FC<{ track: string; len: number }> = ({ track, len }) => (
+  <Audio
+    src={staticFile(`music/bgm_${track}.mp3`)}
+    loop
+    volume={(f) =>
+      0.16 *
+      Math.min(
+        interpolate(f, [0, 30], [0, 1], { extrapolateRight: "clamp" }),
+        interpolate(f, [len - 30, len], [1, 0], { extrapolateLeft: "clamp", extrapolateRight: "clamp" }),
+      )
+    }
+  />
+);
 
-const MusicCredit: React.FC = () => {
-  const frame = useCurrentFrame();
-  const opacity = interpolate(frame, [0, 15], [0, 1], { extrapolateRight: "clamp" });
-  return (
-    <div
-      style={{
-        position: "absolute",
-        right: 30,
-        bottom: 18,
-        fontSize: 21,
-        fontWeight: 600,
-        color: "rgba(255,255,255,0.78)",
-        textShadow: "0 1px 3px rgba(0,0,0,0.9)",
-        opacity,
-      }}
-    >
-      음악: "Investigations", "Deliberate Thought" – Kevin MacLeod (incompetech.com) · CC BY 4.0
-    </div>
-  );
-};
+const MusicCredit: React.FC = () => (
+  <div style={{ position: "absolute", right: 26, bottom: 14, fontSize: 18, fontWeight: 600, color: "rgba(255,255,255,0.72)", textShadow: "0 1px 3px rgba(0,0,0,0.9)" }}>
+    음악: "Investigations", "Deliberate Thought" – Kevin MacLeod (incompetech.com) · CC BY 4.0
+  </div>
+);
 
 export const Main: React.FC = () => {
   loadFonts();
