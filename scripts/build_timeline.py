@@ -21,6 +21,18 @@ credits = json.load(open(os.path.join(ROOT, "content/credits.json"), encoding="u
     if os.path.exists(os.path.join(ROOT, "content/credits.json")) else {}
 
 
+videos = json.load(open(os.path.join(ROOT, "content/videos.json"), encoding="utf-8"))
+
+
+def aspect(image_id):
+    import subprocess
+    out = subprocess.run(["ffprobe", "-v", "error", "-select_streams", "v:0", "-show_entries",
+                          "stream=width,height", "-of", "csv=p=0",
+                          os.path.join(ROOT, f"public/images/{image_id}.jpg")],
+                         capture_output=True, text=True).stdout.strip().split(",")
+    return round(int(out[0]) / int(out[1]), 3)
+
+
 def f(t):
     return int(round(t * FPS))
 
@@ -136,7 +148,9 @@ for idx, s in enumerate(script["scenes"]):
 
     bgs = s["bg"]
     seg = dur / len(bgs)
-    backgrounds = [{"image": b, "from": f(i * seg), "to": f((i + 1) * seg)} for i, b in enumerate(bgs)]
+    backgrounds = [{"image": b, "from": f(i * seg), "to": f((i + 1) * seg),
+                    "kind": "video" if b in videos else "image",
+                    "aspect": 16 / 9 if b in videos else aspect(b)} for i, b in enumerate(bgs)]
 
     scenes_out.append({
         "id": s["id"], "from": f(t), "duration": f(dur), "audioOffset": f(offset),

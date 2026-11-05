@@ -1,6 +1,18 @@
 {
-  "v_vhs_load": { "title": "File:VHS tape load mechanism.ogg", "start": 0, "length": 12 },
-  "v_vhs_static": { "title": "File:Old VHS tape ending black screen static.webm", "start": 2, "length": 10 },
-  "v_lumia": { "title": "File:Nokia Lumia 630 different cases.webm", "start": 4, "length": 12 },
-  "v_film_camera": { "title": "File:Optical film camera - musuem - japan - 2022 jan 6.webm", "start": 0, "length": 9.5 }
+  "v_vhs_load": {
+    "title": "File:VHS tape load mechanism.ogg",
+    "start": 0,
+    "length": 12
+  },
+  "v_vhs_static": {
+    "title": "generated",
+    "generated": "ffmpeg noise (see README)",
+    "start": 0,
+    "length": 10
+  },
+  "v_film_camera": {
+    "title": "File:Optical film camera - musuem - japan - 2022 jan 6.webm",
+    "start": 0,
+    "length": 9.5
+  }
 }

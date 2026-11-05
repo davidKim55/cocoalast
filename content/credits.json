@@ -160,5 +160,26 @@
     "artist": "Friedrich Haag",
     "license": "CC BY-SA 4.0",
     "source": "https://commons.wikimedia.org/wiki/File:2015_04_08_012_Kodak_Instamatic_50.jpg"
+  },
+  "v_vhs_load": {
+    "title": "File:VHS tape load mechanism.ogg",
+    "artist": "Daniele Napolitano",
+    "license": "CC BY-SA 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:VHS_tape_load_mechanism.ogg",
+    "kind": "video"
+  },
+  "v_film_camera": {
+    "title": "File:Optical film camera - musuem - japan - 2022 jan 6.webm",
+    "artist": "Nesnad",
+    "license": "CC BY 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Optical_film_camera_-_musuem_-_japan_-_2022_jan_6.webm",
+    "kind": "video"
+  },
+  "v_vhs_static": {
+    "title": "generated",
+    "artist": "직접 생성(ffmpeg)",
+    "license": "자체 제작",
+    "source": null,
+    "kind": "generated"
   }
 }

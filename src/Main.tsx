@@ -4,6 +4,7 @@ import {
   Audio,
   Img,
   interpolate,
+  OffthreadVideo,
   Sequence,
   spring,
   staticFile,
@@ -16,7 +17,7 @@ import timeline from "./timeline.json";
 
 type Seg = { t: string; red: boolean };
 type Caption = { from: number; to: number; segs: Seg[] };
-type Bg = { image: string; from: number; to: number };
+type Bg = { image: string; from: number; to: number; kind: string; aspect: number };
 type SceneData = {
   id: string;
   from: number;
@@ -41,7 +42,7 @@ const active = (gs: Graphic[], f: number) => gs.filter((g) => f >= g.from && f <
 const Background: React.FC<{ bgs: Bg[]; blur: number; dim: number }> = ({ bgs, blur, dim }) => {
   const frame = useCurrentFrame();
   return (
-    <AbsoluteFill style={{ filter: `blur(${blur * 16}px) brightness(${1 - dim})`, transform: `scale(${1 + blur * 0.04})` }}>
+    <AbsoluteFill style={{ filter: `blur(${blur * 16}px) brightness(${1 - dim}) contrast(1.06) saturate(0.92)`, transform: `scale(${1 + blur * 0.04})` }}>
       {bgs.map((b, i) => {
         const len = b.to - b.from + FADE;
         const local = frame - b.from;
@@ -50,12 +51,35 @@ const Background: React.FC<{ bgs: Bg[]; blur: number; dim: number }> = ({ bgs, b
         const zoom = interpolate(local, [0, len], [1.06, 1.16]);
         const dir = i % 2 === 0 ? 1 : -1;
         const pan = interpolate(local, [0, len], [-18 * dir, 18 * dir]);
+        if (b.kind === "video") {
+          return (
+            <AbsoluteFill key={i} style={{ opacity }}>
+              <Sequence from={b.from} layout="none">
+                <OffthreadVideo
+                  src={staticFile(`videos/${b.image}.mp4`)}
+                  muted
+                  style={{ width: "100%", height: "100%", objectFit: "cover", transform: `scale(${zoom * 0.95})` }}
+                />
+              </Sequence>
+            </AbsoluteFill>
+          );
+        }
+        const src = staticFile(`images/${b.image}.jpg`);
+        // Portrait / square photos: blurred fill behind, the whole photo on top.
+        if (b.aspect < 1.2) {
+          return (
+            <AbsoluteFill key={i} style={{ opacity }}>
+              <Img src={src} style={{ width: "100%", height: "100%", objectFit: "cover", filter: "blur(40px) brightness(0.55)", transform: "scale(1.2)" }} />
+              <Img
+                src={src}
+                style={{ position: "absolute", width: "100%", height: "100%", objectFit: "contain", transform: `scale(${zoom * 0.92}) translateX(${pan}px)` }}
+              />
+            </AbsoluteFill>
+          );
+        }
         return (
           <AbsoluteFill key={i} style={{ opacity }}>
-            <Img
-              src={staticFile(`images/${b.image}.jpg`)}
-              style={{ width: "100%", height: "100%", objectFit: "cover", transform: `scale(${zoom}) translateX(${pan}px)` }}
-            />
+            <Img src={src} style={{ width: "100%", height: "100%", objectFit: "cover", transform: `scale(${zoom}) translateX(${pan}px)` }} />
           </AbsoluteFill>
         );
       })}
@@ -119,7 +143,7 @@ const ChapterLabel: React.FC<{ chapter: SceneData["chapter"]; hidden: boolean }>
 
 const Credit: React.FC<{ image: string | undefined }> = ({ image }) => {
   const c = image ? credits[image] : undefined;
-  if (!c) return null;
+  if (!c || (c as any).kind === "generated") return null;
   return (
     <div
       style={{
@@ -132,7 +156,7 @@ const Credit: React.FC<{ image: string | undefined }> = ({ image }) => {
         textShadow: "0 1px 3px rgba(0,0,0,0.9)",
       }}
     >
-      사진: {c.artist} · {c.license} · Wikimedia Commons
+      {(c as any).kind === "video" ? "영상" : "사진"}: {c.artist} · {c.license} · Wikimedia Commons
     </div>
   );
 };

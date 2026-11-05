@@ -90,12 +90,12 @@
       ],
       "bg": [
         "bb_store",
-        "bb_store2",
+        "v_vhs_load",
         "bb_vhs",
         "bb_shelves",
         "bb_rewind",
         "bb_sign",
-        "bb_last",
+        "v_vhs_static",
         "bb_last2"
       ],
       "graphics": [
@@ -168,8 +168,8 @@
         "iphone_2007",
         "iphone_gen",
         "nokia_n95b",
-        "nokia_hq2",
-        "nokia_3310"
+        "nokia_hq",
+        "nokia_hq2"
       ],
       "graphics": [
         {
@@ -257,12 +257,12 @@
       ],
       "bg": [
         "kodak_tower",
-        "kodak_sasson",
         "kodak_brownie",
-        "kodak_film",
+        "v_film_camera",
         "kodak_instamatic",
-        "kodak_tower2",
-        "kodak_film2"
+        "kodak_film2",
+        "kodak_film",
+        "kodak_tower2"
       ],
       "graphics": [
         {

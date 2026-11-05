@@ -201,22 +201,30 @@
     {
      "image": "dallas",
      "from": 0,
-     "to": 161
+     "to": 161,
+     "kind": "image",
+     "aspect": 1.502
     },
     {
      "image": "dallas2",
      "from": 161,
-     "to": 321
+     "to": 321,
+     "kind": "image",
+     "aspect": 3.168
     },
     {
      "image": "bb_sign",
      "from": 321,
-     "to": 482
+     "to": 482,
+     "kind": "image",
+     "aspect": 1.333
     },
     {
      "image": "bb_last",
      "from": 482,
-     "to": 643
+     "to": 643,
+     "kind": "image",
+     "aspect": 1.513
     }
    ]
   },
@@ -404,17 +412,23 @@
     {
      "image": "abandoned_mall",
      "from": 0,
-     "to": 217
+     "to": 217,
+     "kind": "image",
+     "aspect": 1.333
     },
     {
      "image": "dead_mall2",
      "from": 217,
-     "to": 433
+     "to": 433,
+     "kind": "image",
+     "aspect": 1.333
     },
     {
      "image": "bb_shelves",
      "from": 433,
-     "to": 650
+     "to": 650,
+     "kind": "image",
+     "aspect": 1.499
     }
    ]
   },
@@ -754,42 +768,58 @@
     {
      "image": "bb_store",
      "from": 0,
-     "to": 150
+     "to": 150,
+     "kind": "image",
+     "aspect": 1.333
     },
     {
-     "image": "bb_store2",
+     "image": "v_vhs_load",
      "from": 150,
-     "to": 299
+     "to": 299,
+     "kind": "video",
+     "aspect": 1.7777777777777777
     },
     {
      "image": "bb_vhs",
      "from": 299,
-     "to": 449
+     "to": 449,
+     "kind": "image",
+     "aspect": 1.499
     },
     {
      "image": "bb_shelves",
      "from": 449,
-     "to": 599
+     "to": 599,
+     "kind": "image",
+     "aspect": 1.499
     },
     {
      "image": "bb_rewind",
      "from": 599,
-     "to": 748
+     "to": 748,
+     "kind": "image",
+     "aspect": 1.0
     },
     {
      "image": "bb_sign",
      "from": 748,
-     "to": 898
+     "to": 898,
+     "kind": "image",
+     "aspect": 1.333
     },
     {
-     "image": "bb_last",
+     "image": "v_vhs_static",
      "from": 898,
-     "to": 1048
+     "to": 1048,
+     "kind": "video",
+     "aspect": 1.7777777777777777
     },
     {
      "image": "bb_last2",
      "from": 1048,
-     "to": 1197
+     "to": 1197,
+     "kind": "image",
+     "aspect": 2.058
     }
    ]
   },
@@ -1146,42 +1176,58 @@
     {
      "image": "nokia_3310",
      "from": 0,
-     "to": 144
+     "to": 144,
+     "kind": "image",
+     "aspect": 0.667
     },
     {
      "image": "nokia_n95",
      "from": 144,
-     "to": 287
+     "to": 287,
+     "kind": "image",
+     "aspect": 1.333
     },
     {
      "image": "nokia_hq",
      "from": 287,
-     "to": 431
+     "to": 431,
+     "kind": "image",
+     "aspect": 1.333
     },
     {
      "image": "iphone_2007",
      "from": 431,
-     "to": 575
+     "to": 575,
+     "kind": "image",
+     "aspect": 1.333
     },
     {
      "image": "iphone_gen",
      "from": 575,
-     "to": 718
+     "to": 718,
+     "kind": "image",
+     "aspect": 1.499
     },
     {
      "image": "nokia_n95b",
      "from": 718,
-     "to": 862
+     "to": 862,
+     "kind": "image",
+     "aspect": 1.0
+    },
+    {
+     "image": "nokia_hq",
+     "from": 862,
+     "to": 1006,
+     "kind": "image",
+     "aspect": 1.333
     },
     {
      "image": "nokia_hq2",
-     "from": 862,
-     "to": 1006
-    },
-    {
-     "image": "nokia_3310",
      "from": 1006,
-     "to": 1149
+     "to": 1149,
+     "kind": "image",
+     "aspect": 1.333
     }
    ]
   },
@@ -1505,37 +1551,51 @@
     {
      "image": "kodak_tower",
      "from": 0,
-     "to": 169
-    },
-    {
-     "image": "kodak_sasson",
-     "from": 169,
-     "to": 339
+     "to": 169,
+     "kind": "image",
+     "aspect": 1.333
     },
     {
      "image": "kodak_brownie",
-     "from": 339,
-     "to": 508
+     "from": 169,
+     "to": 339,
+     "kind": "image",
+     "aspect": 1.499
     },
     {
-     "image": "kodak_film",
-     "from": 508,
-     "to": 677
+     "image": "v_film_camera",
+     "from": 339,
+     "to": 508,
+     "kind": "video",
+     "aspect": 1.7777777777777777
     },
     {
      "image": "kodak_instamatic",
-     "from": 677,
-     "to": 847
-    },
-    {
-     "image": "kodak_tower2",
-     "from": 847,
-     "to": 1016
+     "from": 508,
+     "to": 677,
+     "kind": "image",
+     "aspect": 2.133
     },
     {
      "image": "kodak_film2",
+     "from": 677,
+     "to": 847,
+     "kind": "image",
+     "aspect": 1.0
+    },
+    {
+     "image": "kodak_film",
+     "from": 847,
+     "to": 1016,
+     "kind": "image",
+     "aspect": 1.499
+    },
+    {
+     "image": "kodak_tower2",
      "from": 1016,
-     "to": 1185
+     "to": 1185,
+     "kind": "image",
+     "aspect": 1.333
     }
    ]
   },
@@ -1689,22 +1749,30 @@
     {
      "image": "abandoned_mall",
      "from": 0,
-     "to": 141
+     "to": 141,
+     "kind": "image",
+     "aspect": 1.333
     },
     {
      "image": "bb_last",
      "from": 141,
-     "to": 281
+     "to": 281,
+     "kind": "image",
+     "aspect": 1.513
     },
     {
      "image": "nokia_3310",
      "from": 281,
-     "to": 422
+     "to": 422,
+     "kind": "image",
+     "aspect": 0.667
     },
     {
      "image": "kodak_tower",
      "from": 422,
-     "to": 562
+     "to": 562,
+     "kind": "image",
+     "aspect": 1.333
     }
    ]
   }
@@ -1736,5 +1804,183 @@
    "to": 5399
   }
  ],
- "credits": {}
+ "credits": {
+  "dallas": {
+   "title": "File:Dallas Skyline in the evening.jpg",
+   "artist": "Matthew T Rader",
+   "license": "CC BY-SA 4.0",
+   "source": "https://commons.wikimedia.org/wiki/File:Dallas_Skyline_in_the_evening.jpg"
+  },
+  "dallas2": {
+   "title": "File:Dallas Skyline at Dusk.jpg",
+   "artist": "Matthew T Rader",
+   "license": "CC BY-SA 4.0",
+   "source": "https://commons.wikimedia.org/wiki/File:Dallas_Skyline_at_Dusk.jpg"
+  },
+  "bb_sign": {
+   "title": "File:Anchorage Blockbuster video store sign (41219885734).jpg",
+   "artist": "Jon Konrath from Oakland, USA",
+   "license": "CC BY 2.0",
+   "source": "https://commons.wikimedia.org/wiki/File:Anchorage_Blockbuster_video_store_sign_(41219885734).jpg"
+  },
+  "bb_last": {
+   "title": "File:The Last Blockbuster storefront.jpg",
+   "artist": "UpdateNerd",
+   "license": "CC0",
+   "source": "https://commons.wikimedia.org/wiki/File:The_Last_Blockbuster_storefront.jpg"
+  },
+  "bb_last2": {
+   "title": "File:Exterior of last Blockbuster Video.jpg",
+   "artist": "Coasterlover1994",
+   "license": "CC BY-SA 4.0",
+   "source": "https://commons.wikimedia.org/wiki/File:Exterior_of_last_Blockbuster_Video.jpg"
+  },
+  "bb_store": {
+   "title": "File:Anchorage Blockbuster video store (41894010352).jpg",
+   "artist": "Jon Konrath from Oakland, USA",
+   "license": "CC BY 2.0",
+   "source": "https://commons.wikimedia.org/wiki/File:Anchorage_Blockbuster_video_store_(41894010352).jpg"
+  },
+  "bb_vhs": {
+   "title": "File:Blockbuster 6176.jpg",
+   "artist": "Chris Light",
+   "license": "CC BY-SA 4.0",
+   "source": "https://commons.wikimedia.org/wiki/File:Blockbuster_6176.jpg"
+  },
+  "bb_shelves": {
+   "title": "File:Blockbuster 6178.jpg",
+   "artist": "Chris Light",
+   "license": "CC BY-SA 4.0",
+   "source": "https://commons.wikimedia.org/wiki/File:Blockbuster_6178.jpg"
+  },
+  "bb_rewind": {
+   "title": "File:Blockbuster VHS tape with a reminder to rewind the tape.jpg",
+   "artist": "UnifiedFunctionality",
+   "license": "CC BY-SA 4.0",
+   "source": "https://commons.wikimedia.org/wiki/File:Blockbuster_VHS_tape_with_a_reminder_to_rewind_the_tape.jpg"
+  },
+  "netflix_env": {
+   "title": "File:Netflixenvelope.jpg",
+   "artist": "The original uploader was BlueMint at English Wikipedia.",
+   "license": "CC BY 2.5",
+   "source": "https://commons.wikimedia.org/wiki/File:Netflixenvelope.jpg"
+  },
+  "abandoned_mall": {
+   "title": "File:Abandoned mall.jpg",
+   "artist": "3steph14",
+   "license": "CC BY-SA 4.0",
+   "source": "https://commons.wikimedia.org/wiki/File:Abandoned_mall.jpg"
+  },
+  "dead_mall2": {
+   "title": "File:Abandoned Lehtisaari shopping centre in December 2024 picture 4.jpg",
+   "artist": "JIP",
+   "license": "CC BY-SA 4.0",
+   "source": "https://commons.wikimedia.org/wiki/File:Abandoned_Lehtisaari_shopping_centre_in_December_2024_picture_4.jpg"
+  },
+  "nokia_3310": {
+   "title": "File:Nokia 3310 grey front (tidied and enhanced).jpg",
+   "artist": "Multicherry",
+   "license": "CC BY-SA 4.0",
+   "source": "https://commons.wikimedia.org/wiki/File:Nokia_3310_grey_front_(tidied_and_enhanced).jpg"
+  },
+  "nokia_n95": {
+   "title": "File:Nokia N95 8GB - Front (media keys exposed).jpg",
+   "artist": "Beamish4",
+   "license": "CC BY-SA 4.0",
+   "source": "https://commons.wikimedia.org/wiki/File:Nokia_N95_8GB_-_Front_(media_keys_exposed).jpg"
+  },
+  "nokia_n95b": {
+   "title": "File:NokiaN95 SlideOpen.jpg",
+   "artist": "Nokia65",
+   "license": "CC BY-SA 4.0",
+   "source": "https://commons.wikimedia.org/wiki/File:NokiaN95_SlideOpen.jpg"
+  },
+  "nokia_hq": {
+   "title": "File:Nokia headquarters in Espoo.jpg",
+   "artist": "Villeke",
+   "license": "CC BY-SA 3.0",
+   "source": "https://commons.wikimedia.org/wiki/File:Nokia_headquarters_in_Espoo.jpg"
+  },
+  "nokia_hq2": {
+   "title": "File:NokiaHeadquartersByPollo.JPG",
+   "artist": "Pöllö",
+   "license": "CC BY-SA 3.0",
+   "source": "https://commons.wikimedia.org/wiki/File:NokiaHeadquartersByPollo.JPG"
+  },
+  "iphone_2007": {
+   "title": "File:First iPhone Macworld 2007 DSCF1286.agr.jpg",
+   "artist": "ArnoldReinhold",
+   "license": "CC BY-SA 4.0",
+   "source": "https://commons.wikimedia.org/wiki/File:First_iPhone_Macworld_2007_DSCF1286.agr.jpg"
+  },
+  "iphone_gen": {
+   "title": "File:Original iPhone - iPhone 3G - iPhone 4 - Flickr - Yutaka Tsutano.jpg",
+   "artist": "Yutaka Tsutano from Lincoln, United States",
+   "license": "CC BY 2.0",
+   "source": "https://commons.wikimedia.org/wiki/File:Original_iPhone_-_iPhone_3G_-_iPhone_4_-_Flickr_-_Yutaka_Tsutano.jpg"
+  },
+  "kodak_tower": {
+   "title": "File:Rochester July 7-8, 2025 by Pedro Terres 02 - Kodak Tower.jpg",
+   "artist": "Parzeus",
+   "license": "CC BY 4.0",
+   "source": "https://commons.wikimedia.org/wiki/File:Rochester_July_7-8,_2025_by_Pedro_Terres_02_-_Kodak_Tower.jpg"
+  },
+  "kodak_tower2": {
+   "title": "File:Kodak Tower (Rochester NY) from Red Wings game May 2018.jpg",
+   "artist": "B137",
+   "license": "CC BY-SA 4.0",
+   "source": "https://commons.wikimedia.org/wiki/File:Kodak_Tower_(Rochester_NY)_from_Red_Wings_game_May_2018.jpg"
+  },
+  "kodak_sasson": {
+   "title": "File:Kodak Sasson BL.jpg",
+   "artist": "Bertrand Labévue",
+   "license": "CC BY-SA 4.0",
+   "source": "https://commons.wikimedia.org/wiki/File:Kodak_Sasson_BL.jpg"
+  },
+  "kodak_brownie": {
+   "title": "File:2014-365-233 The Basic Brownie Camera (14809795240).jpg",
+   "artist": "cogdogblog",
+   "license": "CC0",
+   "source": "https://commons.wikimedia.org/wiki/File:2014-365-233_The_Basic_Brownie_Camera_(14809795240).jpg"
+  },
+  "kodak_film": {
+   "title": "File:Used 135 film cartridges.jpg",
+   "artist": "Petar Milošević",
+   "license": "CC BY-SA 4.0",
+   "source": "https://commons.wikimedia.org/wiki/File:Used_135_film_cartridges.jpg"
+  },
+  "kodak_film2": {
+   "title": "File:Kodak Ektar 100 135 film cartridge (01).jpg",
+   "artist": "El Grafo",
+   "license": "CC BY-SA 4.0",
+   "source": "https://commons.wikimedia.org/wiki/File:Kodak_Ektar_100_135_film_cartridge_(01).jpg"
+  },
+  "kodak_instamatic": {
+   "title": "File:2015 04 08 012 Kodak Instamatic 50.jpg",
+   "artist": "Friedrich Haag",
+   "license": "CC BY-SA 4.0",
+   "source": "https://commons.wikimedia.org/wiki/File:2015_04_08_012_Kodak_Instamatic_50.jpg"
+  },
+  "v_vhs_load": {
+   "title": "File:VHS tape load mechanism.ogg",
+   "artist": "Daniele Napolitano",
+   "license": "CC BY-SA 4.0",
+   "source": "https://commons.wikimedia.org/wiki/File:VHS_tape_load_mechanism.ogg",
+   "kind": "video"
+  },
+  "v_film_camera": {
+   "title": "File:Optical film camera - musuem - japan - 2022 jan 6.webm",
+   "artist": "Nesnad",
+   "license": "CC BY 4.0",
+   "source": "https://commons.wikimedia.org/wiki/File:Optical_film_camera_-_musuem_-_japan_-_2022_jan_6.webm",
+   "kind": "video"
+  },
+  "v_vhs_static": {
+   "title": "generated",
+   "artist": "직접 생성(ffmpeg)",
+   "license": "자체 제작",
+   "source": null,
+   "kind": "generated"
+  }
+ }
 }
