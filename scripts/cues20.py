@@ -192,10 +192,27 @@ VISUALS = {}  # filled in visuals20.py once the photos are downloaded
 if __name__ == "__main__":
     p = os.path.join(ROOT, "content/script20.json")
     d = json.load(open(p, encoding="utf-8"))
-    try:
-        from visuals20 import VISUALS as V  # noqa
-    except ImportError:
-        V = VISUALS
+    import sys
+    sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+    from visuals20 import VISUALS as V, FALLBACK  # noqa
+    vids = json.load(open(os.path.join(ROOT, "content/videos.json"), encoding="utf-8"))
+
+    def have(i):
+        return os.path.exists(os.path.join(ROOT, f"public/images/{i}.jpg")) or i in vids
+
+    swapped = set()
+    for vs in V.values():
+        for v in vs:
+            if v.get("image") and not have(v["image"]):
+                alt = FALLBACK.get(v["image"])
+                assert alt and have(alt), f"no image or fallback for {v['image']}"
+                swapped.add(f"{v['image']}->{alt}")
+                v["image"] = alt
+    for r in BOARD["ranks"]:
+        if not have(r["image"]):
+            r["image"] = FALLBACK[r["image"]]
+    if swapped:
+        print("fallbacks used:", sorted(swapped))
     for s in d["scenes"]:
         s["texts"] = TEXTS.get(s["id"], [])
         s["visuals"] = V.get(s["id"], s.get("visuals", []))

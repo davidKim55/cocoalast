@@ -35,8 +35,8 @@ VISUALS = {
         BG("결국 2017년", "yahoo_hq"), BG("2009년 야후가 개인", "abandoned_mall"), CARD("42조 원을 과소평가라던", "yahoo_hq2"),
     ],
     "t20_r6": [
-        BOARD("야후가 남이", 1), RANK("6위,", "tru_store", "6위", "토이저러스"), BG("\"나는 어른이", "tru_store"),
-        BG("2000년, 인터넷 쇼핑", "amazon_fc"), CARD("당시 최고경영자는", "tru_store"), BG("아마존이 다른", "amazon_fc"),
+        BOARD("야후가 남이", 1), RANK("6위,", "tru_store", "6위", "토이저러스"), BG("\"나는 어른이", "tru_store"), BG("기린 제프리", "tru_geoffrey"),
+        BG("2000년, 인터넷 쇼핑", "amazon_fc"), CARD("당시 최고경영자는", "amazon_logo"), BG("아마존이 다른", "amazon_fc"),
         BG("설상가상", "dead_mall2"), CARD("2017년 9월 파산보호", "tru_closing"), BG("2018년 미국 매장", "tru_closing"),
         BG("그럼 직원들 퇴직금", "tru_former"), CARD("오래 일한 한 직원", "tru_former"),
     ],
@@ -80,4 +80,18 @@ VISUALS = {
         BG("고모리", "fuji_hq"), CARD("넷플릭스는 자기 돈줄", "netflix_hq2"), BG("리드 헤이스팅스", "netflix_hq"),
         BG("여러분도 한 번쯤", "dallas"), BG("그리고 여러분이 마지막으로", "dallas2"), BG("구독 눌러", "bb_last"),
     ],
+}
+
+
+# Used when a photo could not be found or downloaded.
+FALLBACK = {
+    "yahoo_hq2": "yahoo_hq", "yahoo_logo": "yahoo_hq", "yahoo_yang": "yahoo_hq", "yahoo_mayer": "yahoo_hq",
+    "ms_sign": "dallas2", "tru_store": "tru_former", "tru_closing": "tru_closing2", "tru_former": "dead_mall2",
+    "tru_closing2": "dead_mall2", "tru_geoffrey": "tru_store", "amazon_fc": "dead_mall2", "amazon_logo": "amazon_fc",
+    "bb_bold": "iphone_gen", "bb_curve": "bb_bold", "obama_bb": "bb_curve", "balsillie": "bb_curve",
+    "bb_storm": "bb_curve", "rim_waterloo": "bb_bold",
+    "sears_tower": "dallas2", "sears_catalog": "kodak_film", "sears_wishbook": "sears_catalog",
+    "sears_closing": "abandoned_mall", "sears_sixcorners": "sears_closing",
+    "elop": "nokia_hq2", "salo": "nokia_hq", "rochester": "kodak_tower2", "instagram": "iphone_gen",
+    "fuji_hq": "kodak_film2",
 }

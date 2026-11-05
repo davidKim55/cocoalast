@@ -199,5 +199,17 @@
     "artist": "Scott Schiller",
     "license": "CC BY-SA 2.0",
     "source": "https://commons.wikimedia.org/wiki/File:Yahoo!_Sunnyvale_HQ_(2018)_(43714753101).jpg"
+  },
+  "yahoo_hq2": {
+    "title": "File:Yahoo Campus Wherecamp.jpg",
+    "artist": "Luistxo",
+    "license": "CC BY-SA 2.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Yahoo_Campus_Wherecamp.jpg"
+  },
+  "yahoo_logo": {
+    "title": "File:Yahoo! logo (2013).png",
+    "artist": "Yahoo! Inc.",
+    "license": "Public domain",
+    "source": "https://commons.wikimedia.org/wiki/File:Yahoo!_logo_(2013).png"
   }
 }

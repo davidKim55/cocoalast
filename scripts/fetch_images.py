@@ -53,6 +53,10 @@ for key, title in todo.items():
         continue
     artist = clean(m.get("Artist", {}).get("value", "")) or "Unknown"
     url = ii.get("thumburl") or ii["url"]
+    if "/thumb/" not in url and ii.get("width", 0) < 1280:
+        # Wikimedia only serves standard thumbnail sizes; small originals get throttled. Skip them.
+        print("SKIP small original", key, ii.get("width"))
+        continue
     tmp = f"{out_dir}/{key}.download"
     for attempt in range(6):
         try:
